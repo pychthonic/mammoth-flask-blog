@@ -1,0 +1,232 @@
+{% extends "layout.html" %}
+{% block content %}
+	<div class="content-section">
+		<form method="POST" enctype="multipart/form-data" action = "">
+			{{ form.hidden_tag() }}
+			<fieldset class="form-group">
+				{% if legend == 'Update Post' %}
+					<br>
+					<h3 class="bottom-border-line centered-text">Confirm / Update Post<br><br></h3>
+				{% else %}
+				<legend class="bottom-border-line mb-4">{{ legend }}</legend>
+				{% endif %}
+				<div class="form-group bottom-border-line">
+					{% if legend == 'Update Post' %}
+					<p class="centered-text centered-padding-text bottom-border-line"><b>IMPORTANT: Be sure to scroll down to the bottom of the screen and hit the "Submit" button!<br><br></b></p>
+					<p>Title:</p>
+					{% else %}
+					{{ form.title.label(class="form-control-label") }}
+					{% endif %}
+					{% if form.title.errors %}
+						{{ form.title(class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.title.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+						<br>
+					{% else %}
+						{{ form.title(class="form-control form-control-lg") }}<br>
+					{% endif %}
+				</div>
+				<div class="form-group bottom-border-line">
+					{% if legend == 'Update Post' %}
+					<p>Content:</p>
+					{% else: %}
+					{{ form.content.label(class="form-control-label") }}
+					{% endif %}
+					{% if form.content.errors %}
+						{{ form.content(class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.content.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div><br>
+					{% else %}
+						{{ form.content(class="form-control form-control-lg") }}<br>
+					{% endif %}
+				</div>
+
+
+				<div class="form-group ">
+					{% if legend == 'Update Post' %}
+					<p>If adding a relevant link which will fall below the Content section, copy complete HTTP URL here ( example: https://www.abolitionistlawcenter.org ):</p>
+					{% else %}
+					{{ form.link_href.label }}
+					{% endif %}
+
+					{% if form.link_href.errors %}
+						{{ form.link_href(class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.link_href.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+						<br>
+					{% else %}
+
+						{% if legend == 'Update Post' and post.link_href %}
+							{{ form.link_href(value=post.link_href, class="form-control form-control-lg") }}
+						{% else %}
+							{{ form.link_href(class="form-control form-control-lg") }}
+						{% endif %}
+						<br>
+
+					{% endif %}
+				</div>
+
+				<div class="form-group bottom-border-line">
+
+					{% if legend == 'Update Post' %}
+					<p>Link Description ( example: "Click Here for the Abolitionist Law Center's homepage" ):</p>
+					{% else %}
+					{{ form.link_description.label }}
+					{% endif %}
+
+
+
+					{% if form.link_description.errors %}
+						{{ form.link_description(class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.link_description.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+						<br>
+					{% else %}
+						
+
+						{% if legend == 'Update Post' and post.link_description%}
+							{{ form.link_description(value=post.link_description, class="form-control form-control-lg") }}
+						{% else %}
+							{{ form.link_description(value="Click Here", class="form-control form-control-lg") }}
+						{% endif %}<br>
+					{% endif %}
+				</div>
+
+
+
+				<div class="form-group bottom-border-line">
+					{% if legend == 'Update Post' %}
+					{% if post.main_image_filename %}
+				    	<p>Previously Uploaded Main Photo:</p>
+				    	<img class="img-responsive" src="{{ url_for('static', filename=post.main_image_filename) }}">
+				 
+				    	<p>Main Photo Caption / Photo Credit (optional):</p>
+						{% if form.main_photo_caption.errors %}
+							{{ form.main_photo_caption(class="form-control form-control-lg is-invalid") }}
+							<div class="invalid-feedback">
+								{% for error in form.main_photo_caption.errors %}
+									<span>{{ error }}</span>
+								{% endfor %}
+							</div><br>
+						{% else %}
+							{{ form.main_photo_caption(class="form-control form-control-lg") }}<br>
+						{% endif %}
+				    {% endif %}
+
+					<p>Change Main Photo:
+					{% else %}
+					{{ form.main_photo.label(class="form-control-label") }}
+					{% endif %}
+					{% if form.main_photo.errors %}
+						{{ form.main_photo(class="btn btn-outline-info") }}
+						<div class="invalid-feedback">
+							{% for error in form.main_photo.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+					{% else %}
+						{{ form.main_photo(class="btn") }}
+					{% endif %}
+					{% if legend == 'Update Post' %}
+						</p>
+					{% else %}
+					<br><br>
+					{% endif %}
+				</div>
+
+				<div class="form-group bottom-border-line">
+					{% if legend == 'Update Post' %}
+						{% if post.extra_images_filenames %}
+							<p>Previously Uploaded Additional Photos:</p>
+
+		    				<!-- copy/paste here -->
+
+							{% for x in image_filename_caption_dict %}
+
+		    					<img class="img-responsive" src="{{ url_for('static', filename=image_filename_caption_dict[x][1]) }}">
+		    					<br>
+	
+								{% if form.extra_photos_captions.errors %}
+									{{ form.extra_photos_captions(class="form-control form-control-lg is-invalid") }}
+									<div class="invalid-feedback">
+										{% for error in form.extra_photos_captions.errors %}
+											<span>{{ error }}</span>
+										{% endfor %}
+									</div><br><br>
+								{% else %}
+
+								<!-- <p>Previous caption: {{ image_filename_caption_dict[x][0] }}</p> -->
+								<p>Caption/Photo Credit (optional, leave "No caption" if None):
+								{{ form.extra_photos_captions.append_entry()(class="form-control form-control-lg", value=image_filename_caption_dict[x][0]) }}</p>
+								<!-- <p class="centered-text"> Copy the previous caption into the entry to keep it </p> -->
+								<br><br>
+								
+								{% endif %} 
+
+								<br>
+
+
+
+
+
+
+		    				{% endfor %}
+
+
+		    					
+
+		    			{% endif %}
+					<p>Change Additional Photos:
+					{% else %}
+					{{ form.extra_photos.label(class="form-control-label") }}
+					{% endif %}
+					{% if form.extra_photos.errors %}
+						{{ form.extra_photos(class="btn btn-outline-info") }}
+						<div class="invalid-feedback">
+							{% for error in form.extra_photos.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+					{% else %}
+						{{ form.extra_photos(class="btn") }}
+					{% endif %}<br><br>
+					{% if legend == 'Update Post' %}
+						</p><br><br><small> Note: 
+If you want to delete the photos in your update and not use any, copy and paste the text into a New Post and delete the old one.</small>
+
+					{% endif %}
+				</div>
+			</fieldset>
+			{% if legend == 'Update Post' %}
+
+			<div class="form-group centered-text">
+				{{ form.submit_update(class="btn btn-outline-info") }}
+			</div>
+			{% else %}
+			<div class="form-group">
+				{{ form.submit_new(class="btn btn-outline-info") }}
+			</div>
+			{% endif %}
+
+		</form>
+	</div>
+{% endblock content %}
+
+
+
+
+
+
+

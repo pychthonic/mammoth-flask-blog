@@ -1,0 +1,279 @@
+{% extends "layout.html" %}
+{% block content %}
+	<div class="content-section">
+		<form method="POST" enctype="multipart/form-data" action = "">
+			{{ form.hidden_tag() }}
+			<fieldset class="form-group">
+
+				<br>
+				<h3 class="bottom-border-line centered-text">2018/2019 NBA Stat Search<br><br></h3>
+
+				<div class="form-group bottom-border-line">
+					<p class="centered-text">{{ form.name.label(class="form-control-label") }}</p>
+
+					{% if form.name.errors %}
+						{{ form.name(class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.name.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+						<br>
+					{% else %}
+						{{ form.name(class="form-control form-control-lg") }}<br>
+					{% endif %}
+				</div>
+
+				<div class="form-group bottom-border-line">
+					<p class="centered-text">{{ form.team.label(class="form-control-label") }}</p>
+
+					{% if form.team.errors %}
+						{{ form.team(class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.team.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+						<br>
+					{% else %}
+						{{ form.team(class="form-control form-control-lg") }}<br>
+					{% endif %}
+				</div>
+
+				<div class="form-group bottom-border-line">
+					<p class="centered-text">{{ form.position.label(class="form-control-label") }}</p>
+
+					{% if form.position.errors %}
+						{{ form.position(class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.position.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+						<br>
+					{% else %}
+						{{ form.position(class="form-control form-control-lg") }}<br>
+					{% endif %}
+				</div>
+
+				<div class="form-group bottom-border-line">
+
+
+					<p class="centered-text">{{ form.age.label(class="form-control-label") }}</p>
+
+
+
+					{% if form.age_range.errors %}
+						{{ form.age_range(class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.age_range.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+						<br>
+					{% else %}
+						{{ form.age_range(class="form-control form-control-lg") }}<br>
+					{% endif %}
+				
+
+
+					{% if form.age.errors %}
+						{{ form.age(class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.age.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+						<br>
+					{% else %}
+						{{ form.age(class="form-control form-control-lg") }}<br>
+					{% endif %}
+				</div>
+
+
+				<div class="form-group bottom-border-line">
+
+
+					<p class="centered-text">{{ form.games.label(class="form-control-label") }}</p>
+
+					{% if form.games_range.errors %}
+						{{ form.games_range(class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.games_range.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+						<br>
+					{% else %}
+						{{ form.games_range(class="form-control form-control-lg") }}<br>
+					{% endif %}
+				
+					{% if form.games.errors %}
+						{{ form.games(class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.games.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+						<br>
+					{% else %}
+						{{ form.games(class="form-control form-control-lg") }}<br>
+					{% endif %}
+				</div>
+
+				<div class="form-group bottom-border-line">
+
+
+					<p class="centered-text">{{ form.games_started.label(class="form-control-label") }}</p>
+
+					{% if form.games_started_range.errors %}
+						{{ form.games_started_range(class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.games_started_range.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+						<br>
+					{% else %}
+						{{ form.games_started_range(class="form-control form-control-lg") }}<br>
+					{% endif %}
+				
+					{% if form.games_started.errors %}
+						{{ form.games_started(class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.games_started.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+						<br>
+					{% else %}
+						{{ form.games_started(class="form-control form-control-lg") }}<br>
+					{% endif %}
+				</div>
+
+				<div class="form-group bottom-border-line">
+
+
+					<p class="centered-text">{{ form.minutes_played.label(class="form-control-label") }}</p>
+
+					{% if form.minutes_range.errors %}
+						{{ form.minutes_range(class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.minutes_range.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+						<br>
+					{% else %}
+						{{ form.minutes_range(class="form-control form-control-lg") }}<br>
+					{% endif %}
+				
+					{% if form.minutes_played.errors %}
+						{{ form.minutes_played(class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.minutes_played.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+						<br>
+					{% else %}
+						{{ form.minutes_played(class="form-control form-control-lg") }}<br>
+					{% endif %}
+				</div>
+
+
+
+				<div class="form-group bottom-border-line">
+					<p class="centered-text">{{ form.points.label(class="form-control-label") }}</p>
+
+					{% if form.points_range.errors %}
+						{{ form.points_range(class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.points_range.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+						<br>
+					{% else %}
+						{{ form.points_range(class="form-control form-control-lg") }}<br>
+					{% endif %}
+				
+					{% if form.points.errors %}
+						{{ form.points(class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.points.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+						<br>
+					{% else %}
+						{{ form.points(class="form-control form-control-lg") }}<br>
+					{% endif %}
+				</div>
+
+				<div class="form-group bottom-border-line">
+					<p class="centered-text">{{ form.field_goals.label(class="form-control-label") }}</p>
+
+					{% if form.field_goal_range.errors %}
+						{{ form.field_goal_range(class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.field_goal_range.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+						<br>
+					{% else %}
+						{{ form.field_goal_range(class="form-control form-control-lg") }}<br>
+					{% endif %}
+				
+					{% if form.field_goals.errors %}
+						{{ form.field_goals(class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.field_goals.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+						<br>
+					{% else %}
+						{{ form.field_goals(class="form-control form-control-lg") }}<br>
+					{% endif %}
+				</div>
+
+				<div class="form-group bottom-border-line">
+					<p class="centered-text">{{ form.field_goal_attempts.label(class="form-control-label") }}</p>
+
+					{% if form.field_goal_attempts_range.errors %}
+						{{ form.field_goal_attempts_range(class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.field_goal_attempts_range.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+						<br>
+					{% else %}
+						{{ form.field_goal_attempts_range(class="form-control form-control-lg") }}<br>
+					{% endif %}
+				
+					{% if form.field_goal_attempts.errors %}
+						{{ form.field_goal_attempts(class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.field_goal_attempts.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+						<br>
+					{% else %}
+						{{ form.field_goal_attempts(class="form-control form-control-lg") }}<br>
+					{% endif %}
+				</div>
+
+			</fieldset>
+
+
+			<div class="form-group centered-text">
+				{{ form.submit_search(class="btn btn-outline-info") }}
+			</div>
+
+		</form>
+	</div>
+{% endblock content %}

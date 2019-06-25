@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="page-content content-section">
+	<h2 class="bottom-border-line">LINUX FOR YOU</h2>
+	{% if current_user.is_authenticated %}
+	<a class="btn btn-outline-info" href="{{ url_for('issues.new_issue') }}"> Upload Linux For You</a>
+	<br><br>
+	{% endif %}
+	</h2><br>
+	<div class="row">
+		<div class="twitter-column">
+			<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="Linux For You Issue {{ issue.issue_number }}" data-url="https://www.mammothflaskblog.org/linux-for-you/{{ issue.issue_number }}" data-show-count="false"><img src="{{ url_for('static', filename='images/tweet_button.jpg') }}" alt=”Tweet This” title=”Tweet This" /></a><script nonce="{{ csp_nonce() }}" async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+		</div>
+
+
+		<div class="fb-share-button fb-column" data-href="https://www.mammothflaskblog.org/linux-for-you/{{ issue.issue_number }}" data-layout="button" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.mammothflaskblog.org%2Flinux-for-you%2F{{ issue.issue_number }}%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore" quote="Click for Linux For You Issue {{ issue.issue_number }}">Share</a></div>
+
+	</div>
+	
+	<a href="/linux-for-you/{{ issue.issue_number }}">
+		<img class="img-responsive centered-image" src={{ "../static/" + issue.thumbnail_filename }} height=50% width=50%>
+		<p class="centered-text">Issue {{ issue.issue_number }}, {{ issue.season }} {{ issue.year }}<br>--> Click to Read <--</p>
+		</a>
+
+		<br>
+
+	<p>Flask apps can serve up pdfs! The app consults a SQL database for the issue with the highest number and displays it here, above. There is also an archive <a href="/linux-for-you/back-issues">over here</a>, where visitors can read or download past issues. Twitter and Facebook share buttons are automatically generated for each issue. I chose a magazine about Linux whose issues are available for free online to demonstrate this.</p>
+
+	<p>If a user is logged in, they can upload more issues. The code takes the pdf, creates a jpg of the cover page for the image link, renames the pdf and jpg files and places them in a special folder, and stores all necessary information about the issue in the SQL database -- issue number, year, month, as well as the filenames and locations of the pdf and jpg files on the server. 
+
+	<p>Click here for <a href="/linux-for-you/back-issues">the Linux For You Archives</a></p><br><br>
+
+	<a href="../static/images/screenshot_upload_linux_for_you.png" target="new"><img class="img-responsive" src="../static/images/screenshot_upload_linux_for_you.png"></a>
+	<small>Here's a screenshot of the interface a logged-in admin would see when uploading an issue.</small><br><br><br>
+
+	<a href="../static/images/screenshot_LinuxForYouForm.png" target="new"><img class="img-responsive" src="../static/images/screenshot_LinuxForYouForm.png"></a>
+	<small>Here's a look at the Form class which is used to take information from the admin about the pdf, and the pdf itself.</small><br><br><br>
+
+	<a href="../static/images/screenshot_upload_pdf_code.png" target="new"><img class="img-responsive" src="../static/images/screenshot_upload_pdf_code.png"></a>
+	<small>Here's the first 35 lines of code of the html template for the interface.</small><br><br>
+
+
+
+</div>
+
+{% endblock content %}

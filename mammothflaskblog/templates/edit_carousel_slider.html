@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+{% block content %}
+
+{% if current_user.is_authenticated %}
+
+	<div class="page-content content-section">
+	<h2 class="bottom-border-line">UPDATE CAROUSEL SLIDER</h2>
+
+	<a class="btn btn-secondary btn-sm mt-1 mb-1" href="{{ url_for('carousel_slider.new_carousel_slide') }}">Upload New Image</a>
+
+	</div>
+
+	{% for carousel_slide in carousel_slides %}
+		<article class="media content-section-post">
+
+				<div class="media-body">
+
+					<div class="row">
+						<div class="messages-column-left">
+		  					<a class="btn btn-secondary btn-sm mt-1 mb-1" href="{{ url_for('carousel_slider.update_carousel_slide', slide_id=carousel_slide.id) }}">Update Slide</a>
+		  				</div>
+
+		  				<div class="messages-column-left">
+		  					<a class="btn btn-secondary btn-sm mt-1 mb-1" href="{{ url_for('carousel_slider.delete_slide', slide_id=carousel_slide.id) }}">Delete Slide</a>
+		  			<!-- <button type="button" class="btn btn-secondary btn-sm mt-1 mb-1" data-toggle="modal" data-target="#deleteModal">Delete Slide</button> -->
+		  				</div>
+
+	  				</div><br>
+
+
+			    	<img class="img-responsive centered-image letter-image" src="{{ url_for('static', filename=carousel_slide.image_filename) }}">
+
+		    		<p class="article-content letter-text">Caption: {{ carousel_slide.caption }}</p>
+
+		  		</div>
+
+			<!-- <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+			  <div class="modal-dialog" role="document">
+			    
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <h5 class="modal-title" id="deleteModalLabel">Are you sure you want to delete this slide?</h5>
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			          <span aria-hidden="true">&times;</span>
+			        </button>
+			      </div>
+	
+			      <div class="modal-footer">
+			        <button type="button" class="btn btn-secondary" data-dismiss="modal">No, don't delete</button>
+			        <form action="{{ url_for('carousel_slider.delete_slide', slide_id=carousel_slide.id) }}" method="POST">
+			        	<input class="btn btn-danger" type="submit" value="Delete">
+			        </form>
+			       
+			      </div>
+			      
+			    </div>
+			  </div>
+			</div> -->
+
+
+
+		</article>
+
+	<!-- Modal -->
+
+
+
+	{% endfor %}
+
+
+
+
+{% endif %}
+
+{% endblock content %}

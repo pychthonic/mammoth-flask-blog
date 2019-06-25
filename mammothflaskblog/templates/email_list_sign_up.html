@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% block content %}
+	<div class="page-content content-section">
+		<form method="POST" enctype="form-data" action = "">
+			{{ form.hidden_tag() }}
+			<fieldset class="form-group">
+				<h2 class="bottom-border-line">Sign Up for Email Announcements!</h2>
+				<p>Sign up to receive a weekly email with announcements and events: <br></p>
+				<div class="row">
+					<p class="form-group col-sm-7">
+						{{ form.email_address_to_add.label(class="form-control-label") }}
+						{% if form.email_address_to_add.errors %}
+							{{ form.email_address_to_add(class="form-control form-control-lg is-invalid") }}
+							<div class="invalid-feedback">
+								{% for error in form.email_address_to_add.errors %}
+									<span>{{ error }}</span>
+								{% endfor %}
+							</div>
+						{% else %}
+							{{ form.email_address_to_add(class="form-control form-control-lg") }}
+						{% endif %}
+					</p>
+				</div>
+				<br>
+			</fieldset>
+			<div class="form-group">
+				{{ form.submit(class="btn btn-outline-info") }}
+			</div>
+		</form>
+	</div>
+{% endblock content %}

@@ -1,0 +1,80 @@
+{% extends "layout.html" %}
+{% block content %}
+	<div class="content-section">
+		<form method="POST" enctype="multipart/form-data" action = "">
+			{{ form.hidden_tag() }}
+			<fieldset class="form-group">
+				{% if legend == 'Update Text and/or Image' %}
+					<br>
+					<h3 class="bottom-border-line centered-text">Update Text / Image Item<br><br></h3>
+				{% else %}
+				<legend class="bottom-border-line mb-4">{{ legend }}</legend>
+				{% endif %}
+
+				<div class="form-group bottom-border-line">
+
+					<p>Text Content:</p>
+
+					{% if form.text_part.errors %}
+						{{ form.text_part(class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.text_part.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div><br>
+					{% else %}
+						{{ form.text_part(class="form-control form-control-lg") }}<br>
+					{% endif %}
+				</div>
+
+				<div class="form-group bottom-border-line">
+					{% if legend == 'Update Text and/or Image' %}
+						{% if text_and_image.image_filename %}
+					    	<p>Previously Uploaded Image:</p>
+					    	<img class="img-responsive" src="{{ url_for('static', filename=text_and_image.image_filename) }}"> <br>
+					    {% endif %}
+
+					<p>Replace Image:
+					{% else %}
+						{{ form.image_file.label(class="form-control-label") }}
+					{% endif %}
+
+					{% if form.image_file.errors %}
+						{{ form.image_file(class="btn btn-outline-info") }}
+						<div class="invalid-feedback">
+							{% for error in form.image_file.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+					{% else %}
+						{{ form.image_file(class="btn") }}
+					{% endif %}
+					{% if legend == 'Update Post' %}			/* ????? *?
+						</p>
+					{% else %}
+					<br><br>
+					{% endif %}
+				</div>
+
+			</fieldset>
+			{% if legend == 'Update Text and/or Image' %}
+
+			<div class="form-group centered-text">
+				{{ form.submit_update(class="btn btn-outline-info") }}
+			</div>
+			{% else %}
+			<div class="form-group">
+				{{ form.submit_new(class="btn btn-outline-info") }}
+			</div>
+			{% endif %}
+
+		</form>
+	</div>
+{% endblock content %}
+
+
+
+
+
+
+

@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div class="page-content content-section">
+<h2 class="bottom-border-line">LINUX FOR YOU ARCHIVES</h2>
+</div>
+
+
+{% for issue in issues %}
+<div class="page-content content-section">
+	<br>
+	<div class="row">
+		<div class="twitter-column">
+			<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="Linux For You Issue {{ issue.issue_number }}" data-url="https://www.mammothflaskblog.org/linux-for-you/{{ issue.issue_number }}" data-show-count="false"><img src="{{ url_for('static', filename='images/tweet_button.jpg') }}" alt=”Tweet This” title=”Tweet This" /></a><script nonce="{{ csp_nonce() }}" async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+		</div>
+		<div class="fb-share-button fb-column" data-href="https://www.mammothflaskblog.org/linux-for-you/{{ issue.issue_number }}" data-layout="button" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.mammothflaskblog.org%2Flinux-for-you%2F{{ issue.issue_number }}&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a>
+		</div>
+	</div>
+
+	<a href="/linux-for-you/{{ issue.issue_number }}">
+		<img class="img-responsive centered-image" src={{ "../static/" + issue.thumbnail_filename }} height=50% width=50%>
+		<p class="centered-text content-link-movement">Issue {{ issue.issue_number }}, {{ issue.month }} {{ issue.year }}<br>--> Click to Read <--</p></a>
+
+</div>
+{% endfor %}
+
+
+
+
+{% endblock %}
