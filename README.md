@@ -3,7 +3,7 @@ Flask-based web app with image carousel, pdf viewer and uploader, information su
 
 It looks good on both computers and mobile phones.
 
-It uses Talisman and other precautions for security against XSS attacks and SQL injections.
+It uses Talisman and other precautions for protection against XSS attacks and SQL injections.
 
 The code needs to be cleaned up and pep8-ified. I'm going to add a little bit more functionality to the nba stat search,
 clean the code up so it's easier to read, then put it up online. I'll post the link when that happens.
