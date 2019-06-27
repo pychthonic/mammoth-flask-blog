@@ -14,10 +14,10 @@
           <p>Age: {{ player_found.age }} &nbsp; &nbsp; &nbsp; &nbsp; Team: {{ player_found.team }} </p>
           <p>Games: {{ player_found.games }} &nbsp; &nbsp; &nbsp; &nbsp; Games Started: {{ player_found.games_started }} </p>
           <p>Minutes Played: {{ player_found.minutes_played }} &nbsp; &nbsp; &nbsp; &nbsp; Points: {{ player_found.points }} </p>
-          <p>Field Goals: {{ player_found.field_goals }} <br> Field Goal Attempts: {{ player_found.field_goal_attempts }} <br> Field Goal Percentage: {{ player_found.field_goal_percentage }} </p>
-          <p>Three Point Shots Made: {{ player_found.three_point_shots_made }} <br> Three Point Attempts: {{ player_found.three_point_attempts }} <br> Three Point Percentage: {{ player_found.three_point_percentage }} </p>
-          <p>Two Point Shots Made: {{ player_found.two_point_shots_made }} <br> Two Point Attempts: {{ player_found.two_point_attempts }} <br> Two Point Percentage: {{ player_found.two_point_percentage }} </p>
-          <p>Free Throws Made: {{ player_found.free_throws_made }} <br> Free Throw Attempts: {{ player_found.free_throw_attempts }} <br> Free Throw Percentage: {{ player_found.free_throw_percentage }} </p>
+          <p>Field Goals: {{ player_found.field_goals }} <br> Field Goal Attempts: {{ player_found.field_goal_attempts }} <br> Field Goal Percentage: {{ (player_found.field_goal_percentage*100)|round(1) }}% </p>
+          <p>Three Point Shots Made: {{ player_found.three_point_shots_made }} <br> Three Point Attempts: {{ player_found.three_point_attempts }} <br> Three Point Percentage: {{ (player_found.three_point_percentage*100)|round(1) }}% </p>
+          <p>Two Point Shots Made: {{ player_found.two_point_shots_made }} <br> Two Point Attempts: {{ player_found.two_point_attempts }} <br> Two Point Percentage: {{ (player_found.two_point_percentage*100)|round(1) }}% </p>
+          <p>Free Throws Made: {{ player_found.free_throws_made }} <br> Free Throw Attempts: {{ player_found.free_throw_attempts }} <br> Free Throw Percentage: {{ (player_found.free_throw_percentage*100)|round(1) }}% </p>
           <p>Offensive Rebounds: {{ player_found.offensive_rebounds }} <br> Defensive Rebounds: {{ player_found.defensive_rebounds }} <br> Total Rebounds: {{ player_found.total_rebounds }}</p>
           <p>Assists: {{ player_found.assists }} <br> Steals: {{ player_found.steals }} <br> Blocks: {{ player_found.blocks }} </p>
           <p>Turnovers: {{ player_found.turnovers }} &nbsp; &nbsp; &nbsp; &nbsp; Personal Fouls: {{ player_found.personal_fouls }} </p>
