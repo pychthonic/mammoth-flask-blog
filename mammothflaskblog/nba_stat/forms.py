@@ -81,7 +81,7 @@ class NBAStatForm(FlaskForm):
 		choices=[("", ""), (">=", "At Least"), ("<=", "At Most"), ("=", "Equal To")]
 		)
 
-	games_list = [(num, num) for num in range(0, 81, 5)]
+	games_list = [(num, num) for num in range(5, 81, 5)]
 	games_list.insert(0, blank_tuple)
 	games = SelectField(
 		'Games Played', coerce=int, default=("",""),
@@ -139,28 +139,154 @@ class NBAStatForm(FlaskForm):
 		choices=[("", ""), (">=", "At Least"), ("<=", "At Most"), ("=", "Equal To")]
 		)
 
+	field_goal_percentage_list = [(num, str(num) + "%") for num in range(5, 105, 5)]
+	field_goal_percentage_list.insert(0, blank_tuple)
+	field_goal_percentage = SelectField(
+		'Field Goal Percentage', coerce=int, default=("",""),
+		choices=field_goal_percentage_list)
+	field_goal_percentage_range = SelectField(
+		'At Least, At Most, Equal To',
+		choices=[("", ""), (">=", "At Least"), ("<=", "At Most")]
+		)
+
+	three_point_shots_made_list = [(num, num) for num in range(25, 400, 25)]
+	three_point_shots_made_list.insert(0, blank_tuple)
+	three_point_shots_made = SelectField(
+		'Total Three Point Shots Made', coerce=int, default=("",""),
+		choices=three_point_shots_made_list)
+	three_point_shots_made_range = SelectField(
+		'At Least, At Most',
+		choices=[("", ""), (">=", "At Least"), ("<=", "At Most")]
+		)
+
+	three_point_attempts_list = [(num, num) for num in range(50, 1050, 50)]
+	three_point_attempts_list.insert(0, blank_tuple)
+	three_point_attempts = SelectField(
+		'Total Three Point Attempts', coerce=int, default=("",""),
+		choices=three_point_attempts_list)
+	three_point_attempts_range = SelectField(
+		'At Least, At Most',
+		choices=[("", ""), (">=", "At Least"), ("<=", "At Most")]
+		)
+
+	three_point_percentage_list = [(num, str(num) + "%") for num in range(5, 105, 5)]
+	three_point_percentage_list.insert(0, blank_tuple)
+	three_point_percentage = SelectField(
+		'Three Point Percentage', coerce=int, default=("",""),
+		choices=three_point_percentage_list)
+	three_point_percentage_range = SelectField(
+		'At Least, At Most, Equal To',
+		choices=[("", ""), (">=", "At Least"), ("<=", "At Most")]
+		)
+
+	two_point_shots_made_list = [(num, num) for num in range(50, 700, 50)]
+	two_point_shots_made_list.insert(0, blank_tuple)
+	two_point_shots_made = SelectField(
+		'Total Two Point Shots Made', coerce=int, default=("",""),
+		choices=two_point_shots_made_list)
+	two_point_shots_made_range = SelectField(
+		'At Least, At Most',
+		choices=[("", ""), (">=", "At Least"), ("<=", "At Most")]
+		)
+
+	two_point_attempts_list = [(num, num) for num in range(100, 1300, 100)]
+	two_point_attempts_list.insert(0, blank_tuple)
+	two_point_attempts = SelectField(
+		'Total Two Point Attempts', coerce=int, default=("",""),
+		choices=two_point_attempts_list)
+	two_point_attempts_range = SelectField(
+		'At Least, At Most',
+		choices=[("", ""), (">=", "At Least"), ("<=", "At Most")]
+		)
+
+	two_point_percentage_list = [(num, str(num) + "%") for num in range(5, 105, 5)]
+	two_point_percentage_list.insert(0, blank_tuple)
+	two_point_percentage = SelectField(
+		'Two Point Percentage', coerce=int, default=("",""),
+		choices=two_point_percentage_list)
+	two_point_percentage_range = SelectField(
+		'At Least, At Most, Equal To',
+		choices=[("", ""), (">=", "At Least"), ("<=", "At Most")]
+		)
+
+	free_throws_made_list = [(num, num) for num in range(50, 800, 50)]
+	free_throws_made_list.insert(0, blank_tuple)
+	free_throws_made = SelectField(
+		'Total Free Throws Made', coerce=int, default=("",""),
+		choices=free_throws_made_list)
+	free_throws_made_range = SelectField(
+		'At Least, At Most',
+		choices=[("", ""), (">=", "At Least"), ("<=", "At Most")]
+		)
+
+	free_throw_attempts_list = [(num, num) for num in range(100, 900, 100)]
+	free_throw_attempts_list.insert(0, blank_tuple)
+	free_throw_attempts = SelectField(
+		'Total Free Throw Attempts', coerce=int, default=("",""),
+		choices=free_throw_attempts_list)
+	free_throw_attempts_range = SelectField(
+		'At Least, At Most',
+		choices=[("", ""), (">=", "At Least"), ("<=", "At Most")]
+		)
+
+	free_throw_percentage_list = [(num, str(num) + "%") for num in range(5, 105, 5)]
+	free_throw_percentage_list.insert(0, blank_tuple)
+	free_throw_percentage = SelectField(
+		'Free Throw Percentage', coerce=int, default=("",""),
+		choices=free_throw_percentage_list)
+	free_throw_percentage_range = SelectField(
+		'At Least, At Most, Equal To',
+		choices=[("", ""), (">=", "At Least"), ("<=", "At Most")]
+		)
+
+	offensive_rebounds_list = [(num, num) for num in range(25, 425, 25)]
+	offensive_rebounds_list.insert(0, blank_tuple)
+	offensive_rebounds = SelectField(
+		'Total Offensive Rebounds', coerce=int, default=("",""),
+		choices=offensive_rebounds_list)
+	offensive_rebounds_range = SelectField(
+		'At Least, At Most',
+		choices=[("", ""), (">=", "At Least"), ("<=", "At Most")]
+		)
+
+	defensive_rebounds_list = [(num, num) for num in range(50, 850, 50)]
+	defensive_rebounds_list.insert(0, blank_tuple)
+	defensive_rebounds = SelectField(
+		'Total Defensive Rebounds', coerce=int, default=("",""),
+		choices=defensive_rebounds_list)
+	defensive_rebounds_range = SelectField(
+		'At Least, At Most',
+		choices=[("", ""), (">=", "At Least"), ("<=", "At Most")]
+		)
+
+	total_rebounds_list = [(num, num) for num in range(100, 1300, 100)]
+	total_rebounds_list.insert(0, blank_tuple)
+	total_rebounds = SelectField(
+		'Total Rebounds', coerce=int, default=("",""),
+		choices=total_rebounds_list)
+	total_rebounds_range = SelectField(
+		'At Least, At Most',
+		choices=[("", ""), (">=", "At Least"), ("<=", "At Most")]
+		)
+
+	assists_list = [(num, num) for num in range(50, 800, 50)]
+	assists_list.insert(0, blank_tuple)
+	assists = SelectField(
+		'Total Assists', coerce=int, default=("",""),
+		choices=assists_list)
+	assists_range = SelectField(
+		'At Least, At Most',
+		choices=[("", ""), (">=", "At Least"), ("<=", "At Most")]
+		)
 
 
-	field_goal_percentage = DecimalField('Field Goal Percentage', places=3)
-	three_point_shots_made = IntegerField('Three Point Shots Made')
-	three_point_attempts = IntegerField('Three Point Attempts')
-	three_point_percentage = DecimalField('Three Point Percentage', places=3)
-	two_point_shots_made = IntegerField('Two Point Shots Made')
-	two_point_attempts = IntegerField('Two Point Attempts')
-	two_point_percentage = DecimalField('Two Point Percentage', places=3)
-	free_throws_made = IntegerField('Free Throws Made')
-	free_throw_attempts = IntegerField('Free Throw Attempts')
-	free_throw_percentage = DecimalField('Free Throw Percentage', places=3)
-	offensive_rebounds = IntegerField('Offensive Rebounds')
-	defensive_rebounds = IntegerField('Defensive Rebounds')
-	total_rebounds = IntegerField('Total Rebounds')
-	assists = IntegerField('Assists')
+
 	steals = IntegerField('Steals')
 	blocks = IntegerField('Blocks')
 	turnovers = IntegerField('Turnovers')
 	personal_fouls = IntegerField('Personal Fouls')
 
-	submit_search = SubmitField('Search the Database')
+	submit_search = SubmitField('Search Database')
 	sort_by = IntegerField('Sort By')
 
 

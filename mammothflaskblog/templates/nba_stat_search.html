@@ -6,7 +6,7 @@
 			<fieldset class="form-group">
 
 				<br>
-				<h3 class="bottom-border-line centered-text">2018/2019 NBA Stat Search<br><br></h3>
+				<h3 class="bottom-border-line centered-text">NBA 2018/19 Stat Search<br><br></h3>
 
 				<div class="form-group bottom-border-line">
 					<p class="centered-text">{{ form.name.label(class="form-control-label") }}</p>
@@ -264,6 +264,400 @@
 						<br>
 					{% else %}
 						{{ form.field_goal_attempts(class="form-control form-control-lg") }}<br>
+					{% endif %}
+				</div>
+
+
+				<div class="form-group bottom-border-line">
+					<p class="centered-text">{{ form.field_goal_percentage.label(class="form-control-label") }}</p>
+
+					{% if form.field_goal_percentage_range.errors %}
+						{{ form.field_goal_percentage_range(class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.field_goal_percentage_range.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+						<br>
+					{% else %}
+						{{ form.field_goal_percentage_range(class="form-control form-control-lg") }}<br>
+					{% endif %}
+				
+					{% if form.field_goal_percentage.errors %}
+						{{ form.field_goal_percentage(class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.field_goal_percentage.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+						<br>
+					{% else %}
+						{{ form.field_goal_percentage(class="form-control form-control-lg") }}<br>
+					{% endif %}
+				</div>
+
+				<div class="form-group bottom-border-line">
+					<p class="centered-text">{{ form.three_point_shots_made.label(class="form-control-label") }}</p>
+
+					{% if form.three_point_shots_made_range.errors %}
+						{{ form.three_point_shots_made_range(class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.three_point_shots_made_range.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+						<br>
+					{% else %}
+						{{ form.three_point_shots_made_range(class="form-control form-control-lg") }}<br>
+					{% endif %}
+				
+					{% if form.three_point_shots_made.errors %}
+						{{ form.three_point_shots_made(class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.three_point_shots_made.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+						<br>
+					{% else %}
+						{{ form.three_point_shots_made(class="form-control form-control-lg") }}<br>
+					{% endif %}
+				</div>
+
+				<div class="form-group bottom-border-line">
+					<p class="centered-text">{{ form.three_point_attempts.label(class="form-control-label") }}</p>
+
+					{% if form.three_point_attempts_range.errors %}
+						{{ form.three_point_attempts_range(class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.three_point_attempts_range.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+						<br>
+					{% else %}
+						{{ form.three_point_attempts_range(class="form-control form-control-lg") }}<br>
+					{% endif %}
+				
+					{% if form.three_point_attempts.errors %}
+						{{ form.three_point_attempts(class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.three_point_attempts.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+						<br>
+					{% else %}
+						{{ form.three_point_attempts(class="form-control form-control-lg") }}<br>
+					{% endif %}
+				</div>
+
+				<div class="form-group bottom-border-line">
+					<p class="centered-text">{{ form.three_point_percentage.label(class="form-control-label") }}</p>
+
+					{% if form.three_point_percentage_range.errors %}
+						{{ form.three_point_percentage_range(class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.three_point_percentage_range.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+						<br>
+					{% else %}
+						{{ form.three_point_percentage_range(class="form-control form-control-lg") }}<br>
+					{% endif %}
+				
+					{% if form.three_point_percentage.errors %}
+						{{ form.three_point_percentage(class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.three_point_percentage.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+						<br>
+					{% else %}
+						{{ form.three_point_percentage(class="form-control form-control-lg") }}<br>
+					{% endif %}
+				</div>
+
+				<div class="form-group bottom-border-line">
+					<p class="centered-text">{{ form.two_point_shots_made.label(class="form-control-label") }}</p>
+
+					{% if form.two_point_shots_made_range.errors %}
+						{{ form.two_point_shots_made_range(class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.two_point_shots_made_range.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+						<br>
+					{% else %}
+						{{ form.two_point_shots_made_range(class="form-control form-control-lg") }}<br>
+					{% endif %}
+				
+					{% if form.two_point_shots_made.errors %}
+						{{ form.two_point_shots_made(class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.two_point_shots_made.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+						<br>
+					{% else %}
+						{{ form.two_point_shots_made(class="form-control form-control-lg") }}<br>
+					{% endif %}
+				</div>
+
+
+				<div class="form-group bottom-border-line">
+					<p class="centered-text">{{ form.two_point_attempts.label(class="form-control-label") }}</p>
+
+					{% if form.two_point_attempts_range.errors %}
+						{{ form.two_point_attempts_range(class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.two_point_attempts_range.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+						<br>
+					{% else %}
+						{{ form.two_point_attempts_range(class="form-control form-control-lg") }}<br>
+					{% endif %}
+				
+					{% if form.two_point_attempts.errors %}
+						{{ form.two_point_attempts(class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.two_point_attempts.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+						<br>
+					{% else %}
+						{{ form.two_point_attempts(class="form-control form-control-lg") }}<br>
+					{% endif %}
+				</div>
+
+				<div class="form-group bottom-border-line">
+					<p class="centered-text">{{ form.two_point_percentage.label(class="form-control-label") }}</p>
+
+					{% if form.two_point_percentage_range.errors %}
+						{{ form.two_point_percentage_range(class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.two_point_percentage_range.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+						<br>
+					{% else %}
+						{{ form.two_point_percentage_range(class="form-control form-control-lg") }}<br>
+					{% endif %}
+				
+					{% if form.two_point_percentage.errors %}
+						{{ form.two_point_percentage(class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.two_point_percentage.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+						<br>
+					{% else %}
+						{{ form.two_point_percentage(class="form-control form-control-lg") }}<br>
+					{% endif %}
+				</div>
+
+				<div class="form-group bottom-border-line">
+					<p class="centered-text">{{ form.free_throws_made.label(class="form-control-label") }}</p>
+
+					{% if form.free_throws_made_range.errors %}
+						{{ form.free_throws_made_range(class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.free_throws_made_range.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+						<br>
+					{% else %}
+						{{ form.free_throws_made_range(class="form-control form-control-lg") }}<br>
+					{% endif %}
+				
+					{% if form.free_throws_made.errors %}
+						{{ form.free_throws_made(class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.free_throws_made.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+						<br>
+					{% else %}
+						{{ form.free_throws_made(class="form-control form-control-lg") }}<br>
+					{% endif %}
+				</div>
+
+				<div class="form-group bottom-border-line">
+					<p class="centered-text">{{ form.free_throw_attempts.label(class="form-control-label") }}</p>
+
+					{% if form.free_throw_attempts_range.errors %}
+						{{ form.free_throw_attempts_range(class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.free_throw_attempts_range.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+						<br>
+					{% else %}
+						{{ form.free_throw_attempts_range(class="form-control form-control-lg") }}<br>
+					{% endif %}
+				
+					{% if form.free_throw_attempts.errors %}
+						{{ form.free_throw_attempts(class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.free_throw_attempts.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+						<br>
+					{% else %}
+						{{ form.free_throw_attempts(class="form-control form-control-lg") }}<br>
+					{% endif %}
+				</div>
+
+				<div class="form-group bottom-border-line">
+					<p class="centered-text">{{ form.free_throw_percentage.label(class="form-control-label") }}</p>
+
+					{% if form.free_throw_percentage_range.errors %}
+						{{ form.free_throw_percentage_range(class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.free_throw_percentage_range.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+						<br>
+					{% else %}
+						{{ form.free_throw_percentage_range(class="form-control form-control-lg") }}<br>
+					{% endif %}
+				
+					{% if form.free_throw_percentage.errors %}
+						{{ form.free_throw_percentage(class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.free_throw_percentage.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+						<br>
+					{% else %}
+						{{ form.free_throw_percentage(class="form-control form-control-lg") }}<br>
+					{% endif %}
+				</div>
+
+				<div class="form-group bottom-border-line">
+					<p class="centered-text">{{ form.offensive_rebounds.label(class="form-control-label") }}</p>
+
+					{% if form.offensive_rebounds_range.errors %}
+						{{ form.offensive_rebounds_range(class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.offensive_rebounds_range.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+						<br>
+					{% else %}
+						{{ form.offensive_rebounds_range(class="form-control form-control-lg") }}<br>
+					{% endif %}
+				
+					{% if form.offensive_rebounds.errors %}
+						{{ form.offensive_rebounds(class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.offensive_rebounds.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+						<br>
+					{% else %}
+						{{ form.offensive_rebounds(class="form-control form-control-lg") }}<br>
+					{% endif %}
+				</div>
+
+				<div class="form-group bottom-border-line">
+					<p class="centered-text">{{ form.defensive_rebounds.label(class="form-control-label") }}</p>
+
+					{% if form.defensive_rebounds_range.errors %}
+						{{ form.defensive_rebounds_range(class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.defensive_rebounds_range.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+						<br>
+					{% else %}
+						{{ form.defensive_rebounds_range(class="form-control form-control-lg") }}<br>
+					{% endif %}
+				
+					{% if form.defensive_rebounds.errors %}
+						{{ form.defensive_rebounds(class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.defensive_rebounds.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+						<br>
+					{% else %}
+						{{ form.defensive_rebounds(class="form-control form-control-lg") }}<br>
+					{% endif %}
+				</div>
+
+				<div class="form-group bottom-border-line">
+					<p class="centered-text">{{ form.total_rebounds.label(class="form-control-label") }}</p>
+
+					{% if form.total_rebounds_range.errors %}
+						{{ form.total_rebounds_range(class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.total_rebounds_range.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+						<br>
+					{% else %}
+						{{ form.total_rebounds_range(class="form-control form-control-lg") }}<br>
+					{% endif %}
+				
+					{% if form.total_rebounds.errors %}
+						{{ form.total_rebounds(class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.total_rebounds.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+						<br>
+					{% else %}
+						{{ form.total_rebounds(class="form-control form-control-lg") }}<br>
+					{% endif %}
+				</div>
+
+				<div class="form-group bottom-border-line">
+					<p class="centered-text">{{ form.assists.label(class="form-control-label") }}</p>
+
+					{% if form.assists_range.errors %}
+						{{ form.assists_range(class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.assists_range.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+						<br>
+					{% else %}
+						{{ form.assists_range(class="form-control form-control-lg") }}<br>
+					{% endif %}
+				
+					{% if form.assists.errors %}
+						{{ form.assists(class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.assists.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+						<br>
+					{% else %}
+						{{ form.assists(class="form-control form-control-lg") }}<br>
 					{% endif %}
 				</div>
 
