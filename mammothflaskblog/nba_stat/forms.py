@@ -70,6 +70,20 @@ class NBAStatForm(FlaskForm):
 			("TOR", "Toronto Raptors"), ("UTA", "Utah Jazz"), ("WAS", "Washington Wizards")]
 						)
 
+	search_criteria = [('points', 'Points'), ('position', 'Position'), ('age', 'Age'), ('games', 'Games Played'),
+					   ('games_started', 'Games Started'), ('minutes_played', 'Minutes Played'), ('field_goals', 'Field Goals'),
+					   ('field_goal_attempts', 'Field Goal Attempts'), ('field_goal_percentage', 'Field Goal Percentage'),
+					   ('three_point_shots_made', 'Three Point Shots Made'), ('three_point_attempts', 'Three Point Attempts'),
+					   ('three_point_percentage', 'Three Point Percentage'), ('two_point_shots_made', 'Two Point Shots Made'),
+					   ('two_point_attempts', 'Two Point Attempts'), ('two_point_percentage', 'Two Point Percentage'),
+					   ('free_throws_made', 'Free Throws Made'), ('free_throw_attempts', 'Free Throw Attempts'),
+					   ('free_throw_percentage', 'Free Throw Percentage'), ('defensive_rebounds', 'Defensive Rebounds'),
+					   ('offensive_rebounds', 'Offensive Rebounds'), ('total_rebounds', 'Total Rebounds'),
+					   ('assists', 'Assists'), ('steals', 'Steals'), ('blocks', 'Blocks'), ('turnovers', 'Turnovers'),
+					   ('personal_fouls', 'Personal Fouls')]
+
+
+
 	blank_tuple = (0, "")
 	age_list = [(num, num) for num in range(18,43)]
 	age_list.insert(0, blank_tuple)
@@ -279,14 +293,53 @@ class NBAStatForm(FlaskForm):
 		choices=[("", ""), (">=", "At Least"), ("<=", "At Most")]
 		)
 
+	steals_list = [(num, num) for num in range(20, 180, 20)]
+	steals_list.insert(0, blank_tuple)
+	steals = SelectField(
+		'Total Steals', coerce=int, default=("",""),
+		choices=steals_list)
+	steals_range = SelectField(
+		'At Least, At Most',
+		choices=[("", ""), (">=", "At Least"), ("<=", "At Most")]
+		)
 
+	blocks_list = [(num, num) for num in range(20, 200, 20)]
+	blocks_list.insert(0, blank_tuple)
+	blocks = SelectField(
+		'Total Blocks', coerce=int, default=("",""),
+		choices=blocks_list)
+	blocks_range = SelectField(
+		'At Least, At Most',
+		choices=[("", ""), (">=", "At Least"), ("<=", "At Most")]
+		)
 
-	steals = IntegerField('Steals')
-	blocks = IntegerField('Blocks')
-	turnovers = IntegerField('Turnovers')
-	personal_fouls = IntegerField('Personal Fouls')
+	turnovers_list = [(num, num) for num in range(50, 400, 50)]
+	turnovers_list.insert(0, blank_tuple)
+	turnovers = SelectField(
+		'Total Turnovers', coerce=int, default=("",""),
+		choices=turnovers_list)
+	turnovers_range = SelectField(
+		'At Least, At Most',
+		choices=[("", ""), (">=", "At Least"), ("<=", "At Most")]
+		)
+
+	personal_fouls_list = [(num, num) for num in range(50, 300, 50)]
+	personal_fouls_list.insert(0, blank_tuple)
+	personal_fouls = SelectField(
+		'Total Personal Fouls', coerce=int, default=("",""),
+		choices=personal_fouls_list)
+	personal_fouls_range = SelectField(
+		'At Least, At Most',
+		choices=[("", ""), (">=", "At Least"), ("<=", "At Most")]
+		)
+
+	sort_by_list = search_criteria
+	sort_by_list.insert(0, ("", ""))
+	sort_by = SelectField(
+		'Sort Results By', default=("",""),
+		choices=sort_by_list)
 
 	submit_search = SubmitField('Search Database')
-	sort_by = IntegerField('Sort By')
+
 
 

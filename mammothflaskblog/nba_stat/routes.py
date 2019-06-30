@@ -29,7 +29,24 @@ def search_nba_stats():
     form = NBAStatForm()
 
     if form.validate_on_submit():
-        players_found = NBAStat.query.order_by(NBAStat.id)
+    
+
+
+
+
+        if form.sort_by.data:
+
+            players_found = NBAStat.query.order_by(getattr(NBAStat, form.sort_by.data).desc())
+
+
+
+
+
+
+
+
+        else:
+            players_found = NBAStat.query.order_by(NBAStat.id)
         if form.name.data:
             players_found = players_found.filter_by(name=form.name.data.split(', ')[0])
             players_found = players_found.filter_by(team=form.name.data.split(', ')[1])
@@ -178,9 +195,29 @@ def search_nba_stats():
             elif form.assists_range.data == "<=":
                 players_found = players_found.filter(NBAStat.assists <= form.assists.data)
 
+        if form.steals.data:
+            if form.steals_range.data == ">=":
+                players_found = players_found.filter(NBAStat.steals >= form.steals.data)
+            elif form.steals_range.data == "<=":
+                players_found = players_found.filter(NBAStat.steals <= form.steals.data)
 
+        if form.blocks.data:
+            if form.blocks_range.data == ">=":
+                players_found = players_found.filter(NBAStat.blocks >= form.blocks.data)
+            elif form.blocks_range.data == "<=":
+                players_found = players_found.filter(NBAStat.blocks <= form.blocks.data)
 
+        if form.turnovers.data:
+            if form.turnovers_range.data == ">=":
+                players_found = players_found.filter(NBAStat.turnovers >= form.turnovers.data)
+            elif form.turnovers_range.data == "<=":
+                players_found = players_found.filter(NBAStat.turnovers <= form.turnovers.data)
 
+        if form.personal_fouls.data:
+            if form.personal_fouls_range.data == ">=":
+                players_found = players_found.filter(NBAStat.personal_fouls >= form.personal_fouls.data)
+            elif form.personal_fouls_range.data == "<=":
+                players_found = players_found.filter(NBAStat.personal_fouls <= form.personal_fouls.data)
 
 
         players_found_count = players_found.count()
@@ -198,6 +235,10 @@ def search_nba_stats():
                 search_summary = f"Found {players_found_count} players on {len(teams_count)} team"
             else:
                 search_summary = f"Found {players_found_count} players on {len(teams_count)} teams"
+
+
+
+
 
 
 

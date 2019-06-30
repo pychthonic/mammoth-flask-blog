@@ -9,7 +9,7 @@
       <div class="media-body">
           <h5>{{ search_summary }}</h5>
           <p>{{ list_of_teams_string }}<p>
-          <p>Players who were traded mid-season have their season stats aggregated in a "Multiple Teams" category. Robert Covington, for example, has three entries in the database - one for his stats on the Sixers, one for his stats on the Timberwolves, and one for full season stats.
+          <p>Players who were traded mid-season have their season stats aggregated in a "Multiple Teams" category. Robert Covington, for example, has three entries in the database - one for his stats on the Sixers, one for his stats on the Timberwolves, and one for full season stats.</p>
       </div>
   </article>
 
@@ -17,9 +17,10 @@
 		<article class="media content-section-post">
       
           <div class="container">
+
             <div class="flex-container bottom-border-line-search-results-1">
-              <span class="item-left"><h5 class="text-black"><b>{{ player_found.name }}</b></h5></span>
-              <span class="item-right"><h5 class="text-black"><b>{{ position_dict[player_found.position] }}</b></h5></span>
+              <span class="stat-item-left"><h5 class="text-black"><b>{{ player_found.name }}</b></h5></span>
+              <span class="stat-item-right"><h5 class="text-black"><b>{{ position_dict[player_found.position] }}</b></h5></span>
             </div>
 
         
@@ -27,18 +28,48 @@
               <span class="item-center-team"><h5 class="text-black"><em><b>{{ team_name_dict[player_found.team] }}</b></em></h5></span>
             </div>
 
-          <p>Points: <span class="text-black">{{ player_found.points }}</span> Minutes Played: <span class="text-black">{{ player_found.minutes_played }}</span>  </p>
-            <p>Games: <span class="text-black">{{ player_found.games }}</span>  Games Started: <span class="text-black">{{ player_found.games_started }}</span> </p>
-          <p>Age: <span class="text-black">{{ player_found.age }}</span>   </p>
+
+            <p class="flex-container">
+              <span class="stat-item-left">Points: <span class="text-black">{{ player_found.points }}</span></span>
+              <span class="stat-item-right">Points/12-Minutes: <span class="text-black">{{ ((player_found.points / player_found.minutes_played)*12)|round(2) }}</span></span>
+            </p>
+
+            <p class="flex-container">
+              <span class="stat-item-left">Age: <span class="text-black">{{ player_found.age }}</span></span>
+              <span class="stat-item-right">Points/48-Minutes: <span class="text-black">{{ ((player_found.points / player_found.minutes_played)*48)|round(2) }}</span></span>
+            </p>
 
 
-          <p>Field Goals: <span class="text-black">{{ player_found.field_goals }}/{{ player_found.field_goal_attempts }}</span> <br> Field Goal Percentage: <span class="text-black">{{ (player_found.field_goal_percentage*100)|round(1) }}%</span> </p>
+
+            <p class="flex-container">
+              <span class="stat-item-left">Minutes Played: <span class="text-black">{{ player_found.minutes_played }}</span>  </span>
+              <span class="stat-item-right">Minutes/Game: <span class="text-black">{{ (player_found.minutes_played/player_found.games)|round(2) }}</span></span>
+            </p>
+            
+            <p class="flex-container bottom-border-line-search-results-2">
+              <span class="stat-item-left">Games: <span class="text-black">{{ player_found.games }}</span></span>
+              
+              <span class="stat-item-right">Games Started: <span class="text-black">{{ player_found.games_started }}</span><br><br></span>
+            </p>
+
+
+          <p>
+            Field Goals: <span class="text-black">{{ player_found.field_goals }}/{{ player_found.field_goal_attempts }}</span> <br> Field Goal Percentage: <span class="text-black">{{ (player_found.field_goal_percentage*100)|round(1) }}%</span>
+          </p>
+
+
           <p>Three Pointers: <span class="text-black">{{ player_found.three_point_shots_made }}/{{ player_found.three_point_attempts }}</span> <br> Three Point Percentage: <span class="text-black">{{ (player_found.three_point_percentage*100)|round(1) }}%</span> </p>
           <p>Two Pointers: <span class="text-black">{{ player_found.two_point_shots_made }}/{{ player_found.two_point_attempts }}</span> <br> Two Point Percentage: <span class="text-black">{{ (player_found.two_point_percentage*100)|round(1) }}%</span> </p>
-          <p>Free Throws: <span class="text-black">{{ player_found.free_throws_made }}/{{ player_found.free_throw_attempts }}</span> <br> Free Throw Percentage: <span class="text-black">{{ (player_found.free_throw_percentage*100)|round(1) }}%</span> </p>
+
+          <p class="bottom-border-line-search-results-2">Free Throws: <span class="text-black">{{ player_found.free_throws_made }}/{{ player_found.free_throw_attempts }}</span> <br> Free Throw Percentage: <span class="text-black">{{ (player_found.free_throw_percentage*100)|round(1) }}%<br><br></span> </p>
+
+
+
+
           <p>Offensive Rebounds: <span class="text-black">{{ player_found.offensive_rebounds }}</span> <br> Defensive Rebounds: <span class="text-black">{{ player_found.defensive_rebounds }}</span> <br> Total Rebounds: <span class="text-black">{{ player_found.total_rebounds }}</span></p>
           <p>Assists: <span class="text-black">{{ player_found.assists }}</span> Steals: <span class="text-black">{{ player_found.steals }}</span>  Blocks: <span class="text-black">{{ player_found.blocks }} </p>
           <p>Turnovers: <span class="text-black">{{ player_found.turnovers }}</span> Personal Fouls: <span class="text-black">{{ player_found.personal_fouls }}</span> </p>
+
 
 
           </div>

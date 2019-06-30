@@ -97,16 +97,38 @@ body {
 
 .item-right {
   width: 100%;
-
   text-align: right;
-    font-family: Avantgarde;
+  font-family: Avantgarde;
 }
 
 .item-center {
   width: 100%;
   text-align: center;
-    font-family: Avantgarde;
+  font-family: Avantgarde;
 }
+
+
+.stat-item-left {
+  text-align: left;
+  width: 100%;
+  font-family: Avantgarde;
+  font-size: 90%;
+}
+
+.stat-item-right {
+  width: 100%;
+  text-align: right;
+  font-family: Avantgarde;
+  font-size: 90%;
+}
+
+.stat-item-center {
+  width: 100%;
+  text-align: center;
+  font-family: Avantgarde;
+}
+
+
 
 .item-center-team {
   width: 100%;

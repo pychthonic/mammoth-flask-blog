@@ -6,7 +6,7 @@
 			<fieldset class="form-group">
 
 				<br>
-				<h3 class="centered-text bottom-border-line">NBA 2018/19 Stat Search<br><br></h3><p class="bottom-border-line">This is a search engine that acts as a stat filter. You can find out an individual player's stats by selecting their name, or find out all the shooting guards under the age of 25 who had at least 500 rebounds, and scored at least 1000 points. Scroll all the way down to the bottom of the screen for the Search Database button after you've selected all the filters you want.<br><br></p>
+				<h3 class="centered-text bottom-border-line">NBA 2018/19 Stat Search<br><br></h3><p>This is a search engine that acts as a stat filter. You can find out an individual player's stats by selecting their name, or find out all the Small Forwards who had at least 500 rebounds and 1000 points, and sort by how many assists they had.</p><p class="bottom-border-line">Scroll all the way down to the bottom for the 'Sort Results By' feature and 'Search Database' button and after you've selected all the filters you want.<br><br></p>
 
 				
 
@@ -663,6 +663,137 @@
 						{{ form.assists(class="form-control form-control-lg") }}<br>
 					{% endif %}
 				</div>
+
+				<div class="form-group bottom-border-line">
+					<p class="centered-text">{{ form.steals.label(class="form-control-label") }}</p>
+
+					{% if form.steals_range.errors %}
+						{{ form.steals_range(class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.steals_range.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+						<br>
+					{% else %}
+						{{ form.steals_range(class="form-control form-control-lg") }}<br>
+					{% endif %}
+				
+					{% if form.steals.errors %}
+						{{ form.steals(class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.steals.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+						<br>
+					{% else %}
+						{{ form.steals(class="form-control form-control-lg") }}<br>
+					{% endif %}
+				</div>
+
+				<div class="form-group bottom-border-line">
+					<p class="centered-text">{{ form.blocks.label(class="form-control-label") }}</p>
+
+					{% if form.blocks_range.errors %}
+						{{ form.blocks_range(class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.blocks_range.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+						<br>
+					{% else %}
+						{{ form.blocks_range(class="form-control form-control-lg") }}<br>
+					{% endif %}
+				
+					{% if form.blocks.errors %}
+						{{ form.blocks(class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.blocks.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+						<br>
+					{% else %}
+						{{ form.blocks(class="form-control form-control-lg") }}<br>
+					{% endif %}
+				</div>
+
+
+				<div class="form-group bottom-border-line">
+					<p class="centered-text">{{ form.turnovers.label(class="form-control-label") }}</p>
+
+					{% if form.turnovers_range.errors %}
+						{{ form.turnovers_range(class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.turnovers_range.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+						<br>
+					{% else %}
+						{{ form.turnovers_range(class="form-control form-control-lg") }}<br>
+					{% endif %}
+				
+					{% if form.turnovers.errors %}
+						{{ form.turnovers(class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.turnovers.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+						<br>
+					{% else %}
+						{{ form.turnovers(class="form-control form-control-lg") }}<br>
+					{% endif %}
+				</div>
+
+				<div class="form-group bottom-border-line">
+					<p class="centered-text">{{ form.personal_fouls.label(class="form-control-label") }}</p>
+
+					{% if form.personal_fouls_range.errors %}
+						{{ form.personal_fouls_range(class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.personal_fouls_range.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+						<br>
+					{% else %}
+						{{ form.personal_fouls_range(class="form-control form-control-lg") }}<br>
+					{% endif %}
+				
+					{% if form.personal_fouls.errors %}
+						{{ form.personal_fouls(class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.personal_fouls.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+						<br>
+					{% else %}
+						{{ form.personal_fouls(class="form-control form-control-lg") }}<br>
+					{% endif %}
+				</div>
+
+				<div class="form-group bottom-border-line">
+					<p class="centered-text">{{ form.sort_by.label(class="form-control-label") }}</p>
+
+					{% if form.sort_by.errors %}
+						{{ form.sort_by(class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.sort_by.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+						<br>
+					{% else %}
+						{{ form.sort_by(class="form-control form-control-lg") }}<br>
+					{% endif %}
+				</div>
+
+
 
 			</fieldset>
 
