@@ -7,6 +7,7 @@ from mammothflaskblog.config import Config
 
 
 db = SQLAlchemy()
+
 bcrypt = Bcrypt()
 mail = Mail()
 login_manager = LoginManager()
@@ -19,8 +20,10 @@ def create_app(config_class=Config):
     app.config.from_object(Config)
     mail.init_app(app)
     db.init_app(app)
+
     bcrypt.init_app(app)
     login_manager.init_app(app)
+
 
     from mammothflaskblog.users.routes import users
     from mammothflaskblog.posts.routes import posts
@@ -32,6 +35,7 @@ def create_app(config_class=Config):
     from mammothflaskblog.carousel_slider.routes import carousel_slider
     from mammothflaskblog.nba_stat.routes import nba_stat
 
+
     app.register_blueprint(users)
     app.register_blueprint(posts)
     app.register_blueprint(main)
@@ -41,5 +45,8 @@ def create_app(config_class=Config):
     app.register_blueprint(image_text_display)
     app.register_blueprint(carousel_slider)
     app.register_blueprint(nba_stat)
+
+    with app.app_context():
+        db.create_all()
 
     return app

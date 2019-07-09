@@ -17,27 +17,27 @@ def new_post():
 		post = Post(title=form.title.data, 
 					content=form.content.data, 
 					author=current_user)
-		db.session.add(post)
-		db.session.commit()
+		#db.session.add(post)
+		#db.session.commit()
 
 		if form.link_href.data:
-			post = db.session.query(Post).order_by(Post.id.desc()).first()
+			#post = db.session.query(Post).order_by(Post.id.desc()).first()
 			post.link_href = form.link_href.data
 			post.link_description = form.link_description.data
-			db.session.commit()
+			#db.session.commit()
 
 		if form.main_photo.data:
-			post = db.session.query(Post).order_by(Post.id.desc()).first()
+			#post = db.session.query(Post).order_by(Post.id.desc()).first()
 			main_image = form.main_photo.data
 			filename = "image" + str(post.id) + os.path.splitext(main_image.filename)[1]
 			path_plus_filename = os.path.join('mammothflaskblog/static/images', filename)
 			main_image.save(path_plus_filename)
 			main_image_filename_for_db = os.path.join('images', filename)
 			post.main_image_filename = main_image_filename_for_db
-			db.session.commit()
+			#db.session.commit()
 
 		if form.extra_photos.data != ['']:				# THIS ALWAYS PASSES AS TRUE FOR SOME REASON
-			post = db.session.query(Post).order_by(Post.id.desc()).first()
+			#post = db.session.query(Post).order_by(Post.id.desc()).first()
 			extra_images = form.extra_photos.data
 			letters = 'ABCDEFGHIJ'
 			extra_image_count = 0
@@ -55,8 +55,9 @@ def new_post():
 					break
 			post.number_of_extra_images = extra_image_count
 			post.extra_images_filenames = extra_image_list_string
-			db.session.commit()
-
+			#db.session.commit()
+		db.session.add(post)
+		db.session.commit()
 		flash("Add optional captions then hit submit at the bottom of the screen to create your post!", 'success')
 
 		return redirect(f"/post/{str(post.id)}/update")

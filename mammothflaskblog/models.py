@@ -58,7 +58,6 @@ class CarouselSlider(db.Model):
 
 
 class NBAStat(db.Model):
-	__tablename__ = "nba_stat"
 	id = db.Column(db.Integer, nullable=False, primary_key=True)
 	name = db.Column(db.String(50))
 	position = db.Column(db.String(2))
