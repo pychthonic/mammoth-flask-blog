@@ -1,41 +1,37 @@
 {% extends "layout.html" %}
 {% block content %}
-
-{% if current_user.is_authenticated %}
-
-	<div class="page-content content-section">
-	<h2 class="bottom-border-line">UPDATE CAROUSEL SLIDER</h2>
-
-	<a class="btn btn-secondary btn-sm mt-1 mb-1" href="{{ url_for('carousel_slider.new_carousel_slide') }}">Upload New Image</a>
-
-	</div>
-
-	{% for carousel_slide in carousel_slides %}
-		<article class="media content-section-post">
-
-				<div class="media-body">
-
-					<div class="row">
-						<div>
-		  					<a class="btn btn-secondary btn-sm mt-1 mb-1" href="{{ url_for('carousel_slider.update_carousel_slide', slide_id=carousel_slide.id) }}">Update Slide</a>
-		  				</div>
-
-		  				<div>
-		  					<a class="btn btn-secondary btn-sm mt-1 mb-1" href="{{ url_for('carousel_slider.delete_slide', slide_id=carousel_slide.id) }}">Delete Slide</a>
-		  				</div>
-
-	  				</div><br>
-
-
-			    	<img class="img-responsive centered-image letter-image" src="{{ url_for('static', filename=carousel_slide.image_filename) }}">
-
-		    		<p class="article-content letter-text">Caption: {{ carousel_slide.caption }}</p>
-
-		  		</div>
-		</article>
-
-	{% endfor %}
-
-{% endif %}
-
+  {% if current_user.is_authenticated %}
+    <div class="page-content content-section">
+      <h2 class="bottom-border-line">UPDATE CAROUSEL SLIDER</h2>
+      <a class="btn btn-secondary btn-sm mt-1 mb-1"
+          href="{{ url_for('carousel_slider.new_carousel_slide') }}">
+          Upload New Image</a>
+    </div>
+    {% for carousel_slide in carousel_slides %}
+      <article class="media content-section-post">
+          <div class="media-body">
+            <div class="row">
+              <div>
+                  <a class="btn btn-secondary btn-sm mt-1 mb-1"
+                      href="{{ url_for(
+                      'carousel_slider.update_carousel_slide',
+                      slide_id=carousel_slide.id) }}">Update Slide</a>
+              </div>
+              <div>
+                <a class="btn btn-secondary btn-sm mt-1 mb-1" 
+                    href="{{ url_for('carousel_slider.delete_slide',
+                    slide_id=carousel_slide.id) }}">Delete Slide</a>
+              </div>
+            </div><br>
+              <img class="img-responsive centered-image letter-image"
+                  alt="Carousel image. See caption for description."
+                  src="{{ url_for(
+                    'static',
+                    filename=carousel_slide.image_filename) }}">
+              <p class="article-content letter-text">
+                  Caption: {{ carousel_slide.caption }}</p>
+          </div>
+      </article>
+    {% endfor %}
+  {% endif %}
 {% endblock content %}
