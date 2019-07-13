@@ -31,7 +31,8 @@
 		      	{% endif %}
 
 		    	{% if text_and_image.image_filename %}
-			    	<br><img class="img-responsive centered-image letter-image" src="{{ url_for('static', filename=text_and_image.image_filename) }}">
+			    	<br><a href="{{ url_for('static', filename=text_and_image.image_filename) }}" target="new"><img class="img-responsive centered-image bordered-image" src="{{ url_for('static', filename=text_and_image.image_filename) }}"></a>
+            <p class="centered-text"><small>Click for full-sized image</small></p>
 		    	{% endif %}
 
 		    	<p class="article-content letter-text">{{ text_and_image.text_part }}</p>

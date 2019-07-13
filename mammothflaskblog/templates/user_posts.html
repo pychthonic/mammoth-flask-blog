@@ -36,7 +36,7 @@
 			<div class="media-body">
 		    	{% if post.main_image_filename %}
 			    	
-			    	<img class="img-responsive centered-image" src="{{ url_for('static', filename=post.main_image_filename) }}">
+			    	<img class="img-responsive centered-image bordered-image" src="{{ url_for('static', filename=post.main_image_filename) }}">
 			    	{% if post.main_image_caption %}
 			    		<p class="centered-text"><small>{{ post.main_image_caption }}</small></p>
 			    	{% else %}
@@ -58,7 +58,7 @@
 			    	{% for extra_image in post.extra_images_filenames.split('|') %}
 				    	{% if "~" in extra_image %}
 
-				    		<img class="img-responsive centered-image" src="{{ url_for('static', filename=extra_image.split("~")[0]) }}">
+				    		<img class="img-responsive centered-image bordered-image" src="{{ url_for('static', filename=extra_image.split("~")[0]) }}">
 
 				    		{% if extra_image.split("~")[1] != "No caption" %}
 				    			<p class="centered-text"><small>{{ extra_image.split("~")[1] }}</small></p>
@@ -67,7 +67,7 @@
 				    		{% endif %}
 				    	
 				    	{% else %}
-				    		<img class="img-responsive centered-image" src="{{ url_for('static', filename=extra_image) }}">
+				    		<img class="img-responsive centered-image bordered-image" src="{{ url_for('static', filename=extra_image) }}">
 				    		<br>
 				    	{% endif %}
 			    	{% endfor %}

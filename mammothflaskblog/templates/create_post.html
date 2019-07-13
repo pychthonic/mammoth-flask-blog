@@ -130,14 +130,14 @@
 					{{ form.main_photo.label(class="form-control-label") }}
 					{% endif %}
 					{% if form.main_photo.errors %}
-						{{ form.main_photo(class="btn btn-outline-info") }}
+						{{ form.main_photo(class="btn btn-outline-info") }} (jpg, jpeg, or png files only)
 						<div class="invalid-feedback">
 							{% for error in form.main_photo.errors %}
 								<span>{{ error }}</span>
 							{% endfor %}
 						</div>
 					{% else %}
-						{{ form.main_photo(class="btn") }}
+						{{ form.main_photo(class="btn") }} (jpg, jpeg, or png files only)
 					{% endif %}
 					{% if legend == 'Update Post' %}
 						</p>
@@ -177,15 +177,7 @@
 
 								<br>
 
-
-
-
-
-
 		    				{% endfor %}
-
-
-		    					
 
 		    			{% endif %}
 					<p>Change Additional Photos:
@@ -193,14 +185,14 @@
 					{{ form.extra_photos.label(class="form-control-label") }}
 					{% endif %}
 					{% if form.extra_photos.errors %}
-						{{ form.extra_photos(class="btn btn-outline-info") }}
+						{{ form.extra_photos(class="btn btn-outline-info") }} (jpg, jpeg, or png files only)
 						<div class="invalid-feedback">
 							{% for error in form.extra_photos.errors %}
 								<span>{{ error }}</span>
 							{% endfor %}
 						</div>
 					{% else %}
-						{{ form.extra_photos(class="btn") }}
+						{{ form.extra_photos(class="btn") }} (jpg, jpeg, or png files only)
 					{% endif %}<br><br>
 					{% if legend == 'Update Post' %}
 						</p><br><br><small> Note: 

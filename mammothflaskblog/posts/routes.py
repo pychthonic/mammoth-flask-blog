@@ -17,8 +17,9 @@ def new_post():
 		post = Post(title=form.title.data, 
 					content=form.content.data, 
 					author=current_user)
-		#db.session.add(post)
-		#db.session.commit()
+		db.session.add(post)
+		db.session.commit()
+		post = db.session.query(Post).order_by(Post.id.desc()).first()
 
 		if form.link_href.data:
 			#post = db.session.query(Post).order_by(Post.id.desc()).first()
@@ -56,7 +57,7 @@ def new_post():
 			post.number_of_extra_images = extra_image_count
 			post.extra_images_filenames = extra_image_list_string
 			#db.session.commit()
-		db.session.add(post)
+		#db.session.add(post)
 		db.session.commit()
 		flash("Add optional captions then hit submit at the bottom of the screen to create your post!", 'success')
 

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html><!-- 
       ___           ___           ___           ___           ___                         ___     
@@ -43,6 +44,11 @@
 
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
 
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}"
+type="image/x-icon">
+	<link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}"
+type="image/x-icon">
+
 		<title>{{ title }}</title>
 
 </head>
@@ -54,9 +60,7 @@
 
 
 	<header class="site-header">
-
 		<nav class="navbar navbar-dark bg-steel fixed-top">
-
 				<a class="navbar-brand" href="/">MAMMOTH FLASK BLOG</a>
 
 				<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
@@ -74,9 +78,9 @@
 						{% else %}
 
 								<ul class="list-group">
-									<a class="nav-item nav-link" id="dropdown-item" href="#demo" data-toggle="collapse">Show/Hide Slideshow</a>
-									<a class="nav-item nav-link" id="dropdown-item" href="{{ url_for('nba_stat.search_nba_stats')}}">NBA Stat Search</a>
-									<a class="nav-item nav-link" id="dropdown-item" href="{{ url_for('about_the_project.project_description')}}">About The Project</a>
+									<a class="nav-item nav-link"  id="dropdown-item" href="#demo" data-toggle="collapse">Show/Hide Slideshow</a>
+									<a class="nav-item nav-link"  id="dropdown-item" href="{{ url_for('nba_stat.search_nba_stats')}}">NBA Stat Search</a>
+									<a class="nav-item nav-link"  id="dropdown-item" href="{{ url_for('about_the_project.project_description')}}">About The Project</a>
 									<a class="nav-item nav-link" id="dropdown-item" href="{{ url_for('main.linux_for_you')}}">Linux For You</a>
 									<a class="nav-item nav-link" id="dropdown-item" href="/linux-for-you/back-issues">Linux For You Archives</a>
 									<a class="nav-item nav-link" id="dropdown-item" href="/links-of-interest">Links of Interest</a>
@@ -95,8 +99,6 @@
 
 	<!-- <main role="main" class="container">-->
 	  <div class="row page-content-main">
-
-
 	    <!-- <div class="col-md-8"> -->
 	    <div class="main-column-left">
 	    	{% with messages = get_flashed_messages(with_categories=true) %}
@@ -109,33 +111,17 @@
 	    		{% endif %}
 	    	{% endwith %}
 
-			{% if title == 'Human Rights Coalition' and posts.page == 1 %}
-				<article id="demo" class="container media content-section-slider collapse show">
+			{% if title == 'Mammoth Flask Blog' and posts.page == 1 %}
+				
+				<div id="demo" class="content-section-slider collapse show">
 			{% else %}
-				<article id="demo" class="container media content-section-slider collapse">
+				<div id="demo" class="content-section-slider collapse">
 			{% endif %}
 				<div class="media-body">
 
 					<div id="MagicCarousel" class="carousel slide carousel-multi-item carousel-fade" data-ride="carousel">
 
-
-
-						<div class="controls-top">
-							{% for carousel_slide in carousel_slides1 %}
-								{% if carousel_slide[0] == 0 %}
-    						<a class="btn-floating" href="#MagicCarousel" data-slide="prev"><i class="fas fa-chevron-left active"></i></a>
-    						<a class="btn-floating" href="#MagicCarousel" data-slide="next"><i class="fas fa-chevron-right active"></i></a>
-    							{% else %}
-    						<a class="btn-floating" href="#MagicCarousel" data-slide="prev"><i class="fas fa-chevron-left"></i></a>
-    						<a class="btn-floating" href="#MagicCarousel" data-slide="next"><i class="fas fa-chevron-right"></i></a>
-    							{% endif %}
-    						{% endfor %}
-  						</div>
-
-
 						<!-- indicators dot nav -->
-
-
 
 						<!-- wrapper for slides -->
 						<div class="carousel-inner" role="listbox">
@@ -143,9 +129,9 @@
 							{% for carousel_slide in carousel_slides2 %}
 								{% if carousel_slide[0] == 0 %}
 									<div class="carousel-item active">
-										<img class="d-block w-100" src="{{ url_for('static', filename=carousel_slide[1].image_filename) }}" alt="slide {{ carousel_slide[1].id }}">
+										<img class="d-block w-100 bordered-image" src="{{ url_for('static', filename=carousel_slide[1].image_filename) }}" alt="slide {{ carousel_slide[1].id }}">
 										<!-- <div class="carousel-caption contrasted-text-carousel"> -->
-											<small class="centered-text centered-text-carousel-caption"><p>{{ carousel_slide[1].caption }}</p></small>
+									<small class="centered-text"><p class="centered-text-carousel-caption">{{ carousel_slide[1].caption }}</p></small>
 											
 										<!-- </div> -->
 									</div>
@@ -153,14 +139,11 @@
 
 								{% else %}
 									<div class="carousel-item">
-										<img class="d-block w-100" src="{{ url_for('static', filename=carousel_slide[1].image_filename) }}" alt="slide {{ carousel_slide[1].id }}">
-										<!-- <div class="carousel-caption contrasted-text-carousel"> -->
-											<small class="centered-text centered-text-carousel-caption"><p>{{ carousel_slide[1].caption }}</p></small>
-										<!-- </div> -->
+										<img class="d-block w-100 bordered-image" src="{{ url_for('static', filename=carousel_slide[1].image_filename) }}" alt="slide {{ carousel_slide[1].id }}">
+										<small class="centered-text"><p class="centered-text-carousel-caption">{{ carousel_slide[1].caption }}</p></small>
 									</div>
 								{% endif %}
-							
-								{% endfor %}
+							{% endfor %}
 
 							
 						</div>
@@ -176,8 +159,7 @@
 							</a>
 					</div>
 				</div>
-
-				</article>
+				</div>
 
 
 	      	{% block content %}{% endblock %}

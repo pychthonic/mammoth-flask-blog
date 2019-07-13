@@ -31,6 +31,6 @@ talisman = Talisman(app,
         )
 
 if __name__ == '__main__':
-	app.run(threaded=True, debug=True)
+	app.run(host="127.0.0.1", port=5001, threaded=True, debug=True)
 
         # host="10.0.0.101", 
