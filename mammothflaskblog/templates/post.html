@@ -6,10 +6,10 @@
 
   				{% if current_user.is_authenticated %}
   				<div class="row">
-  					<div class="messages-column-left">
+  					<div>
       				<a class="btn btn-secondary btn-sm mt-1 mb-1" href="{{ url_for('posts.update_post', post_id=post.id) }}">Update Post</a>
       				</div>
-      				<div class="messages-column-left">
+      				<div>
       				<a class="btn btn-secondary btn-sm mt-1 mb-1" href="{{ url_for('posts.delete_post', post_id=post.id) }}">Delete Post</a>	
       				</div>
       			</div>
@@ -60,7 +60,7 @@
 		    	<p class="article-content">{{ post.content }}</p>
 
 		    	{% if post.link_href %}
-		    	<p class="article_content centered-text"><a class="content-link " href={{ post.link_href }}>{{ post.link_description }}</a></p>
+		    	<p class="article_content centered-text"><a class="content-link" href={{ post.link_href }}>{{ post.link_description }}</a></p>
 		    	{% endif %}<br>
 
 		    	{% if post.extra_images_filenames %}

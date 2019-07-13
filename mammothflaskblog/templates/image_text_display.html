@@ -21,10 +21,10 @@
 
   				{% if current_user.is_authenticated %}
   				<div class="row">
-  					<div class="messages-column-left">
+  					<div>
       				<a class="btn btn-secondary btn-sm mt-1 mb-1" href="{{ url_for('image_text_display.update_text_and_image', text_and_image_id=text_and_image.id) }}">Update Text/Image</a>
       				</div>
-      				<div class="messages-column-left">
+      				<div>
       				<a class="btn btn-secondary btn-sm mt-1 mb-1" href="{{ url_for('image_text_display.delete_text_and_image', text_and_image_id=text_and_image.id) }}">Delete Text/Image</a>	
       				</div>
       			</div>
@@ -39,12 +39,7 @@
 		  	</div>
 		</article>
 
-	<!-- Modal -->
-
 	{% endfor %}
-
-
-
 
 
 	{% for page_num in text_and_images.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
