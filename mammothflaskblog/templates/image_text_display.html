@@ -1,56 +1,74 @@
 {% extends "layout.html" %}
 {% block content %}
-
-
-
 <div class="page-content content-section">
-<h2 class="bottom-border-line">IMAGE AND TEXT DISPLAY</h2>
-
-<p>This is kind of like a 'blog post lite' section. A logged in admin can post text, an image, or both. There is an interface for the admin to edit or delete previous uploads.</p>
-
-{% if current_user.is_authenticated %}
-<a class="btn btn-secondary btn-sm mt-1 mb-1" href="{{ url_for('image_text_display.new_text_and_image') }}">Upload New Text/Image</a>
-{% endif %}
-
+  <h2 class="bottom-border-line">IMAGE AND TEXT DISPLAY</h2>
+  <p>This is kind of like a 'blog post lite' section. A logged in
+      admin can post text, an image, or both. There is an interface
+      for the admin to edit or delete previous uploads.</p>
+  {% if current_user.is_authenticated %}
+    <a class="btn btn-secondary btn-sm mt-1 mb-1"
+        href="{{ url_for('image_text_display.new_text_and_image') }}">
+        Upload New Text/Image
+    </a>
+  {% endif %}
 </div>
-
-	{% for text_and_image in text_and_images.items %}
-		<article class="media content-section-post">
-
-  			<div class="media-body">
-
-  				{% if current_user.is_authenticated %}
-  				<div class="row">
-  					<div>
-      				<a class="btn btn-secondary btn-sm mt-1 mb-1" href="{{ url_for('image_text_display.update_text_and_image', text_and_image_id=text_and_image.id) }}">Update Text/Image</a>
-      				</div>
-      				<div>
-      				<a class="btn btn-secondary btn-sm mt-1 mb-1" href="{{ url_for('image_text_display.delete_text_and_image', text_and_image_id=text_and_image.id) }}">Delete Text/Image</a>	
-      				</div>
-      			</div>
-		      	{% endif %}
-
-		    	{% if text_and_image.image_filename %}
-			    	<br><a href="{{ url_for('static', filename=text_and_image.image_filename) }}" target="new"><img class="img-responsive centered-image bordered-image" src="{{ url_for('static', filename=text_and_image.image_filename) }}"></a>
-            <p class="centered-text"><small>Click for full-sized image</small></p>
-		    	{% endif %}
-
-		    	<p class="article-content letter-text">{{ text_and_image.text_part }}</p>
-		  	</div>
-		</article>
-
-	{% endfor %}
-
-
-	{% for page_num in text_and_images.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
-      {% if page_num %}
-        {% if text_and_images.page == page_num %}
-          <a class="btn btn-info mb-4" href="{{ url_for('image_text_display.view_text_and_images', page=page_num) }}">{{ page_num }}</a>
-        {% else %}
-          <a class="btn btn-outline-info mb-4" href="{{ url_for('image_text_display.view_text_and_images', page=page_num) }}">{{ page_num }}</a>
-        {% endif %}
-      {% else %}
-        ...
+{% for text_and_image in text_and_images.items %}
+  <article class="media content-section-post">
+    <div class="media-body">
+      {% if current_user.is_authenticated %}
+        <div class="row">
+          <div>
+            <a class="btn btn-secondary btn-sm mt-1 mb-1"
+                href="{{ url_for(
+                'image_text_display.update_text_and_image',
+                text_and_image_id=text_and_image.id) }}">
+              Update Text/Image
+            </a>
+          </div>
+          <div>
+            <a class="btn btn-secondary btn-sm mt-1 mb-1"
+                href="{{ url_for(
+                'image_text_display.delete_text_and_image',
+                text_and_image_id=text_and_image.id) }}">
+              Delete Text/Image
+            </a> 
+          </div>
+        </div>
       {% endif %}
-    {% endfor %}
+      {% if text_and_image.image_filename %}
+        <br>
+        <a href="{{ url_for('static', 
+            filename=text_and_image.image_filename) }}"
+            target="new">
+          <img class="img-responsive centered-image
+              bordered-image" alt="See text section for image 
+              description" src="{{ url_for(
+              'static', filename=text_and_image.image_filename) }}">
+        </a>
+        <p class="centered-text">
+          <small>Click for full-sized image</small>
+        </p>
+      {% endif %}
+      <p class="article-content letter-text">
+        {{ text_and_image.text_part }}
+      </p>
+    </div>
+  </article>
+{% endfor %}
+{% for page_num in text_and_images.iter_pages(
+    left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+  {% if page_num %}
+    {% if text_and_images.page == page_num %}
+      <a class="btn btn-info mb-4" href="{{ url_for(
+          'image_text_display.view_text_and_images',
+          page=page_num) }}">{{ page_num }}</a>
+    {% else %}
+      <a class="btn btn-outline-info mb-4" href="{{ url_for(
+          'image_text_display.view_text_and_images',
+          page=page_num) }}">{{ page_num }}</a>
+    {% endif %}
+  {% else %}
+    ...
+  {% endif %}
+{% endfor %}
 {% endblock content %}
