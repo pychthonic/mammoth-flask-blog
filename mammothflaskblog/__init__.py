@@ -24,7 +24,6 @@ def create_app(config_class=Config):
     bcrypt.init_app(app)
     login_manager.init_app(app)
 
-
     from mammothflaskblog.users.routes import users
     from mammothflaskblog.posts.routes import posts
     from mammothflaskblog.main.routes import main
@@ -34,7 +33,6 @@ def create_app(config_class=Config):
     from mammothflaskblog.image_text_display.routes import image_text_display
     from mammothflaskblog.carousel_slider.routes import carousel_slider
     from mammothflaskblog.nba_stat.routes import nba_stat
-
 
     app.register_blueprint(users)
     app.register_blueprint(posts)
