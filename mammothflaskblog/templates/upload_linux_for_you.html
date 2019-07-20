@@ -1,70 +1,70 @@
 {% extends "layout.html" %}
 {% block content %}
 <div class="content-section">
-	<form method="POST" enctype="multipart/form-data" action = "">
-		{{ form.hidden_tag() }}
-		<fieldset class="form-group">
-			<legend class="border-bottom mb-4">{{ legend }}</legend>
-			<div class="form-group">
-				{{ form.issue_number.label(class="form-control-label") }}
-				{% if form.issue_number.errors %}
-					{{ form.issue_number(
-							class="form-control form-control-lg is-invalid") }}
-					<div class="invalid-feedback">
-						{% for error in form.issue_number.errors %}
-							<span>{{ error }}</span>
-						{% endfor %}
-					</div>
-				{% else %}
-					{{ form.issue_number(
-							class="form-control form-control-lg") }}
-				{% endif %}
-			</div>
-			<div class="form-group">
-				{{ form.year.label(class="form-control-label") }}
-				{% if form.year.errors %}
-					{{ form.year(
-							class="form-control form-control-lg is-invalid") }}
-					<div class="invalid-feedback">
-						{% for error in form.year.errors %}
-							<span>{{ error }}</span>
-						{% endfor %}
-					</div>
-				{% else %}
-					{{ form.year(class="form-control form-control-lg") }}
-				{% endif %}
-			</div>
-			<div class="form-group">
-				{{ form.month.label(class="form-control-label") }}
-				{% if form.month.errors %}
-					{{ form.month(
-							class="form-control form-control-lg is-invalid") }}
-					<div class="invalid-feedback">
-						{% for error in form.month.errors %}
-							<span>{{ error }}</span>
-						{% endfor %}
-					</div>
-				{% else %}
-					{{ form.month(class="form-control form-control-lg") }}
-				{% endif %}
-			</div>
-			<div class="form-group">
-				{{ form.linux_for_you_pdf.label(class="form-control-label") }}
-				{% if form.linux_for_you_pdf.errors %}
-					{{ form.linux_for_you_pdf(class="btn btn-outline-info") }}
-					<div class="invalid-feedback">
-						{% for error in form.linux_for_you_pdf.errors %}
-							<span>{{ error }}</span>
-						{% endfor %}
-					</div>
-				{% else %}
-					{{ form.linux_for_you_pdf(class="btn") }}
-				{% endif %}
-			</div>
-		</fieldset>
-		<div class="form-group">
-			{{ form.submit(class="btn btn-outline-info") }}
-		</div>
-	</form>
+  <form method="POST" enctype="multipart/form-data" action = "">
+    {{ form.hidden_tag() }}
+    <fieldset class="form-group">
+      <legend class="border-bottom mb-4">{{ legend }}</legend>
+      <div class="form-group">
+        {{ form.issue_number.label(class="form-control-label") }}
+        {% if form.issue_number.errors %}
+          {{ form.issue_number(
+              class="form-control form-control-lg is-invalid") }}
+          <div class="invalid-feedback">
+            {% for error in form.issue_number.errors %}
+              <span>{{ error }}</span>
+            {% endfor %}
+          </div>
+        {% else %}
+          {{ form.issue_number(
+              class="form-control form-control-lg") }}
+        {% endif %}
+      </div>
+      <div class="form-group">
+        {{ form.year.label(class="form-control-label") }}
+        {% if form.year.errors %}
+          {{ form.year(
+              class="form-control form-control-lg is-invalid") }}
+          <div class="invalid-feedback">
+            {% for error in form.year.errors %}
+              <span>{{ error }}</span>
+            {% endfor %}
+          </div>
+        {% else %}
+          {{ form.year(class="form-control form-control-lg") }}
+        {% endif %}
+      </div>
+      <div class="form-group">
+        {{ form.month.label(class="form-control-label") }}
+        {% if form.month.errors %}
+          {{ form.month(
+              class="form-control form-control-lg is-invalid") }}
+          <div class="invalid-feedback">
+            {% for error in form.month.errors %}
+              <span>{{ error }}</span>
+            {% endfor %}
+          </div>
+        {% else %}
+          {{ form.month(class="form-control form-control-lg") }}
+        {% endif %}
+      </div>
+      <div class="form-group">
+        {{ form.linux_for_you_pdf.label(class="form-control-label") }}
+        {% if form.linux_for_you_pdf.errors %}
+          {{ form.linux_for_you_pdf(class="btn btn-outline-info") }}
+          <div class="invalid-feedback">
+            {% for error in form.linux_for_you_pdf.errors %}
+              <span>{{ error }}</span>
+            {% endfor %}
+          </div>
+        {% else %}
+          {{ form.linux_for_you_pdf(class="btn") }}
+        {% endif %}
+      </div>
+    </fieldset>
+    <div class="form-group">
+      {{ form.submit(class="btn btn-outline-info") }}
+    </div>
+  </form>
 </div>
 {% endblock content %}
