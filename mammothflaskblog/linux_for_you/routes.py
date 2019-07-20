@@ -40,9 +40,9 @@ def new_issue():
             db.session.delete(row_to_delete)
             db.session.commit()
 
-        issue = Issue(issue_number=str(form.issue_number.data), 
-                    year=form.year.data, 
-                    month=form.month.data)
+        issue = Issue(issue_number=str(form.issue_number.data),
+                      year=form.year.data,
+                      month=form.month.data)
 
         if form.linux_for_you_pdf.data:
             new_issue = form.linux_for_you_pdf.data
