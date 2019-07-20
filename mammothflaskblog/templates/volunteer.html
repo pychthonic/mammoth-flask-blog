@@ -1,241 +1,231 @@
 {% extends "layout.html" %}
 {% block content %}
-	<div class="page-content content-section">
-		<form method="POST" enctype="form-data" action = "">
-			{{ form.hidden_tag() }}
-			<fieldset class="form-group">
-				<h2 class="bottom-border-line">Sign Up To Help!<!-- <legend >{{ legend }}</legend> --></h2>
-				<div class="row">
-					<p class="form-group col-sm-6">
-						{{ form.first_name.label(class="form-control-label") }}
-
-						{% if form.first_name.errors %}
-							{{ form.first_name(class="form-control form-control-lg is-invalid") }}
-							<div class="invalid-feedback">
-								{% for error in form.first_name.errors %}
-									<span>{{ error }}</span>
-								{% endfor %}
-							</div>
-						{% else %}
-							{{ form.first_name(class="form-control form-control-lg") }}
-						{% endif %}
-					</p>
-
-					<p class="form-group col-sm-6">
-						{{ form.last_name.label(class="form-control-label") }}
-
-						{% if form.last_name.errors %}
-							{{ form.last_name(class="form-control form-control-lg is-invalid") }}
-							<div class="invalid-feedback">
-								{% for error in form.last_name.errors %}
-									<span>{{ error }}</span>
-								{% endfor %}
-							</div>
-						{% else %}
-							{{ form.last_name(class="form-control form-control-lg") }}
-						{% endif %}
-					</p>
-				</div>
-				<div class="row">
-					<p class="form-group col-sm-5">
-						{{ form.phone_number.label(class="form-control-label") }}
-
-						{% if form.phone_number.errors %}
-							{{ form.phone_number(class="form-control form-control-lg is-invalid") }}
-							<div class="invalid-feedback">
-								{% for error in form.phone_number.errors %}
-									<span>{{ error }}</span>
-								{% endfor %}
-							</div>
-						{% else %}
-							{{ form.phone_number(class="form-control form-control-lg") }}
-						{% endif %}
-					</p>
-					<p class="form-group col-sm-7">
-						{{ form.volunteer_email.label(class="form-control-label") }}
-
-						{% if form.volunteer_email.errors %}
-							{{ form.volunteer_email(class="form-control form-control-lg is-invalid") }}
-							<div class="invalid-feedback">
-								{% for error in form.volunteer_email.errors %}
-									<span>{{ error }}</span>
-								{% endfor %}
-							</div>
-						{% else %}
-							{{ form.volunteer_email(class="form-control form-control-lg") }}
-						{% endif %}
-					</p>
-				</div>
-				
-				<p class="form-group">
-					{{ form.street_addy.label(class="form-control-label") }}
-
-					{% if form.street_addy.errors %}
-						{{ form.street_addy(class="form-control form-control-lg is-invalid") }}
+<div class="page-content content-section">
+	<form method="POST" enctype="form-data" action = "">
+		{{ form.hidden_tag() }}
+		<fieldset class="form-group">
+			<h2 class="bottom-border-line">Sign Up To Help!</h2>
+			<div class="row">
+				<p class="form-group col-sm-6">
+					{{ form.first_name.label(class="form-control-label") }}
+					{% if form.first_name.errors %}
+						{{ form.first_name(
+								class="form-control form-control-lg is-invalid") }}
 						<div class="invalid-feedback">
-							{% for error in form.street_addy.errors %}
+							{% for error in form.first_name.errors %}
 								<span>{{ error }}</span>
 							{% endfor %}
 						</div>
 					{% else %}
-						{{ form.street_addy(class="form-control form-control-lg") }}
+						{{ form.first_name(class="form-control form-control-lg") }}
 					{% endif %}
 				</p>
-				<div class="row">
-					<p class="form-group col-sm-4">
-						{{ form.apt_suite_bldg.label(class="form-control-label") }}
+				<p class="form-group col-sm-6">
+					{{ form.last_name.label(class="form-control-label") }}
+					{% if form.last_name.errors %}
+						{{ form.last_name(
+								class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.last_name.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+					{% else %}
+						{{ form.last_name(class="form-control form-control-lg") }}
+					{% endif %}
+				</p>
+			</div>
+			<div class="row">
+				<p class="form-group col-sm-5">
+					{{ form.phone_number.label(class="form-control-label") }}
+					{% if form.phone_number.errors %}
+						{{ form.phone_number(
+								class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.phone_number.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+					{% else %}
+						{{ form.phone_number(
+								class="form-control form-control-lg") }}
+					{% endif %}
+				</p>
+				<p class="form-group col-sm-7">
+					{{ form.volunteer_email.label(class="form-control-label") }}
+					{% if form.volunteer_email.errors %}
+						{{ form.volunteer_email(
+								class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.volunteer_email.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+					{% else %}
+						{{ form.volunteer_email(
+								class="form-control form-control-lg") }}
+					{% endif %}
+				</p>
+			</div>
+			<p class="form-group">
+				{{ form.street_addy.label(class="form-control-label") }}
+				{% if form.street_addy.errors %}
+					{{ form.street_addy(
+							class="form-control form-control-lg is-invalid") }}
+					<div class="invalid-feedback">
+						{% for error in form.street_addy.errors %}
+							<span>{{ error }}</span>
+						{% endfor %}
+					</div>
+				{% else %}
+					{{ form.street_addy(class="form-control form-control-lg") }}
+				{% endif %}
+			</p>
+			<div class="row">
+				<p class="form-group col-sm-4">
+					{{ form.apt_suite_bldg.label(class="form-control-label") }}
 
-						{% if form.apt_suite_bldg.errors %}
-							{{ form.apt_suite_bldg(class="form-control form-control-lg is-invalid") }}
-							<div class="invalid-feedback">
-								{% for error in form.apt_suite_bldg.errors %}
-									<span>{{ error }}</span>
-								{% endfor %}
-							</div>
-						{% else %}
-							{{ form.apt_suite_bldg(class="form-control form-control-lg") }}
-						{% endif %}
-					</p>
-					<p class="form-group col-sm-4">
-						{{ form.volunteer_city.label(class="form-control-label") }}
-
-						{% if form.volunteer_city.errors %}
-							{{ form.volunteer_city(class="form-control form-control-lg is-invalid") }}
-							<div class="invalid-feedback">
-								{% for error in form.volunteer_city.errors %}
-									<span>{{ error }}</span>
-								{% endfor %}
-							</div>
-						{% else %}
-							{{ form.volunteer_city(class="form-control form-control-lg") }}
-						{% endif %}
-					</p>
-				
-					<p class="form-group col-sm-4">
-						{{ form.volunteer_state.label(class="form-control-label") }}
-
-						{% if form.volunteer_state.errors %}
-							{{ form.volunteer_state(class="form-control form-control-lg is-invalid") }}
-							<div class="invalid-feedback">
-								{% for error in form.volunteer_state.errors %}
-									<span>{{ error }}</span>
-								{% endfor %}
-							</div>
-						{% else %}
-							{{ form.volunteer_state(class="form-control form-control-lg") }}
-						{% endif %}
-					</p>
-				</div>
-				<div class="row">
-					<p class="form-group col-sm-4">
-						{{ form.volunteer_zip.label(class="form-control-label") }}
-
-						{% if form.volunteer_zip.errors %}
-							{{ form.volunteer_zip(class="form-control form-control-lg is-invalid") }}
-							<div class="invalid-feedback">
-								{% for error in form.volunteer_zip.errors %}
-									<span>{{ error }}</span>
-								{% endfor %}
-							</div>
-						{% else %}
-							{{ form.volunteer_zip(class="form-control form-control-lg") }}
-						{% endif %}
-					</p>
-					<p class="form-group col-sm-4">
-						{{ form.volunteer_country.label(class="form-control-label") }}
-
-						{% if form.volunteer_country.errors %}
-							{{ form.volunteer_country(class="form-control form-control-lg is-invalid") }}
-							<div class="invalid-feedback">
-								{% for error in form.volunteer_country.errors %}
-									<span>{{ error }}</span>
-								{% endfor %}
-							</div>
-						{% else %}
-							{{ form.volunteer_country(class="form-control form-control-lg") }}
-						{% endif %}
-					</p>
-					</div><br>
-
-
-					<h5 class="border-top mb-4 centered-text"><i><br>I can help out with:</i></h5>
-
-
-				<div class="row">
-					<p class="form-group col-sm-6 centered-text">
-						{{ form.reporting.label() }}
-						{{ form.reporting() }}
-						
-					</p>
-					<p class="form-group col-sm-6 centered-text">
-						{{ form.project_leadership.label() }}
-						{{ form.project_leadership() }}
-					</p>
-				</div>
-
-				<div class="row">
-					<p class="form-group col-sm-6 centered-text">
-						{{ form.writing_and_editing.label() }}
-						{{ form.writing_and_editing() }}
-					</p>
-					<p class="form-group col-sm-6 centered-text">
-						{{ form.outreach.label() }}
-						{{ form.outreach() }}
-					</p>
-				</div>
-
-				<div class="row">
-					<p class="form-group col-sm-6 centered-text">
-						{{ form.social_media.label() }}
-						{{ form.social_media() }}
-
-					</p>
-					<p class="form-group col-sm-6 centered-text">
-						{{ form.office_help.label() }}
-						{{ form.office_help() }}
-
-					</p>
-				</div>
-				<div class="row">
-					<p class="form-group col-sm-6 centered-text">
-						{{ form.legal.label() }}
-						{{ form.legal() }}
-
-					</p>
-					<p class="form-group col-sm-6 centered-text">
-						{{ form.fundraising.label() }}
-						{{ form.fundraising() }}
-					</p>
-				</div>
-
-				<div class="form-group">
-					<p>
-					{{ form.other_volunteering_deets.label(class="form-control-label") }}
-					
+					{% if form.apt_suite_bldg.errors %}
+						{{ form.apt_suite_bldg(
+								class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.apt_suite_bldg.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+					{% else %}
+						{{ form.apt_suite_bldg(
+								class="form-control form-control-lg") }}
+					{% endif %}
+				</p>
+				<p class="form-group col-sm-4">
+					{{ form.volunteer_city.label(class="form-control-label") }}
+					{% if form.volunteer_city.errors %}
+						{{ form.volunteer_city(
+								class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.volunteer_city.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+					{% else %}
+						{{ form.volunteer_city(
+								class="form-control form-control-lg") }}
+					{% endif %}
+				</p>
+				<p class="form-group col-sm-4">
+					{{ form.volunteer_state.label(class="form-control-label") }}
+					{% if form.volunteer_state.errors %}
+						{{ form.volunteer_state(
+								class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.volunteer_state.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+					{% else %}
+						{{ form.volunteer_state(
+								class="form-control form-control-lg") }}
+					{% endif %}
+				</p>
+			</div>
+			<div class="row">
+				<p class="form-group col-sm-4">
+					{{ form.volunteer_zip.label(class="form-control-label") }}
+					{% if form.volunteer_zip.errors %}
+						{{ form.volunteer_zip(
+								class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.volunteer_zip.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+					{% else %}
+						{{ form.volunteer_zip(
+								class="form-control form-control-lg") }}
+					{% endif %}
+				</p>
+				<p class="form-group col-sm-4">
+					{{ form.volunteer_country.label(class="form-control-label") }}
+					{% if form.volunteer_country.errors %}
+						{{ form.volunteer_country(
+								class="form-control form-control-lg is-invalid") }}
+						<div class="invalid-feedback">
+							{% for error in form.volunteer_country.errors %}
+								<span>{{ error }}</span>
+							{% endfor %}
+						</div>
+					{% else %}
+						{{ form.volunteer_country(
+								class="form-control form-control-lg") }}
+					{% endif %}
+				</p>
+			</div><br>
+				<h5 class="border-top mb-4 centered-text">
+					<i><br>I can help out with:</i>
+				</h5>
+			<div class="row">
+				<p class="form-group col-sm-6 centered-text">
+					{{ form.reporting.label() }}
+					{{ form.reporting() }}
+				</p>
+				<p class="form-group col-sm-6 centered-text">
+					{{ form.project_leadership.label() }}
+					{{ form.project_leadership() }}
+				</p>
+			</div>
+			<div class="row">
+				<p class="form-group col-sm-6 centered-text">
+					{{ form.writing_and_editing.label() }}
+					{{ form.writing_and_editing() }}
+				</p>
+				<p class="form-group col-sm-6 centered-text">
+					{{ form.outreach.label() }}
+					{{ form.outreach() }}
+				</p>
+			</div>
+			<div class="row">
+				<p class="form-group col-sm-6 centered-text">
+					{{ form.social_media.label() }}
+					{{ form.social_media() }}
+				</p>
+				<p class="form-group col-sm-6 centered-text">
+					{{ form.office_help.label() }}
+					{{ form.office_help() }}
+				</p>
+			</div>
+			<div class="row">
+				<p class="form-group col-sm-6 centered-text">
+					{{ form.legal.label() }}
+					{{ form.legal() }}
+				</p>
+				<p class="form-group col-sm-6 centered-text">
+					{{ form.fundraising.label() }}
+					{{ form.fundraising() }}
+				</p>
+			</div>
+			<div class="form-group">
+				<p>
+					{{ form.other_volunteering_deets.label(
+							class="form-control-label") }}
 					{% if form.other_volunteering_deets.errors %}
-						{{ form.other_volunteering_deets(class="form-control form-control-lg is-invalid") }}
+						{{ form.other_volunteering_deets(
+								class="form-control form-control-lg is-invalid") }}
 						<div class="invalid-feedback">
 							{% for error in form.other_volunteering_deets.errors %}
 								<span>{{ error }}</span>
 							{% endfor %}
 						</div>
 					{% else %}
-						{{ form.other_volunteering_deets(class="form-control form-control-lg") }}
+						{{ form.other_volunteering_deets(
+								class="form-control form-control-lg") }}
 					{% endif %}
 				</p>
-				</div>
-
-			</fieldset>
-			<div class="form-group">
-				{{ form.submit(class="btn btn-outline-info") }}
 			</div>
-		</form>
-	</div>
+		</fieldset>
+		<div class="form-group">
+			{{ form.submit(class="btn btn-outline-info") }}
+		</div>
+	</form>
+</div>
 {% endblock content %}
-
-
-
-
-
-
-

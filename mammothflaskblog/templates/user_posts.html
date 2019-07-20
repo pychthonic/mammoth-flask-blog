@@ -1,97 +1,154 @@
 {% extends "layout.html" %}
 {% block content %}
-	<h4 class="mb-3 contrasted-text">Posts by {{ user.username }} ({{ posts.total }})</h4>
-	{% for post in posts.items %}
-		<div class="content-section-post">
-
-			<div class="container-1">
-
-				<div class="box-1">
-					<img class="rounded-circle article-img account-img" src="{{ url_for('static', filename='profile_pics/' + post.author.image_file) }}">
-				</div>
-
-			    <div class="box-2">
-			    	<div class="title-section-top">
-		    			<div class="section-username">
-		      				<a class="mr-2 article-username" href="{{ url_for('users.user_posts', username=post.author.username) }}">{{ post.author.username }}</a>
-		      			</div>
-						<div class="section-share-buttons" id="fb-twitter-buttons-desktop">
-
-							<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button twitter-share-button-post" data-text="{{ post.title }}" data-url="https://www.mammothflaskblog.org/post/{{ post.id }}" data-show-count="false"><img src="{{ url_for('static', filename='images/tweet_button.jpg') }}" alt=”Tweet This” title=”Tweet This" /></a><script nonce="{{ csp_nonce() }}" async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
-							<div class="fb-share-button fb-share-button-post" data-href="https://www.mammothflaskblog.org/post/{{ post.id }}" data-layout="button" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.mammothflaskblog.org%2Fpost%2F{{ post.id }}%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a>
-							</div>
-
-						</div>
-
-					</div>
-
-					<div class="title-section-bottom">
-				    	<h5 class="article-title"><a class="article-title" href="{{ url_for('posts.post', post_id=post.id) }}">{{ post.title }}</a></h5>
-					</div>
-				</div>
-
+<h4 class="mb-3 contrasted-text">
+	Posts by {{ user.username }} ({{ posts.total }})
+</h4>
+{% for post in posts.items %}
+	<div class="content-section-post">
+		<div class="container-1">
+			<div class="box-1">
+				<img class="rounded-circle article-img account-img"
+						src="{{ url_for(
+						'static', 
+						filename='profile_pics/' + post.author.image_file) }}">
 			</div>
-
-			<div class="media-body">
-		    	{% if post.main_image_filename %}
-			    	
-			    	<img class="img-responsive centered-image bordered-image" src="{{ url_for('static', filename=post.main_image_filename) }}">
-			    	{% if post.main_image_caption %}
-			    		<p class="centered-text"><small>{{ post.main_image_caption }}</small></p>
-			    	{% else %}
-			    		<br>
-			    	{% endif %}
-		    	{% endif %}
-
-		    	<div class="section-date">
-		      		<small>Posted {{ post.date_posted.strftime('%A, %B %-d, %Y') }}</small>
-		      	</div>
-
-		    	<p class="article-content">{{ post.content }}</p>
-
-		    	{% if post.link_href %}
-		    	<p class="article_content centered-text"><a class="content-link" href={{ post.link_href }}>{{ post.link_description }}</a></p>
-		    	{% endif %}<br>
-
-		    	{% if post.extra_images_filenames %}
-			    	{% for extra_image in post.extra_images_filenames.split('|') %}
-				    	{% if "~" in extra_image %}
-
-				    		<img class="img-responsive centered-image bordered-image" src="{{ url_for('static', filename=extra_image.split("~")[0]) }}">
-
-				    		{% if extra_image.split("~")[1] != "No caption" %}
-				    			<p class="centered-text"><small>{{ extra_image.split("~")[1] }}</small></p>
-				    		{% else %}
-				    			<br>
-				    		{% endif %}
-				    	
-				    	{% else %}
-				    		<img class="img-responsive centered-image bordered-image" src="{{ url_for('static', filename=extra_image) }}">
-				    		<br>
-				    	{% endif %}
-			    	{% endfor %}
-		    	{% endif %}
-		    		<div class="section-share-buttons" id="fb-twitter-buttons-mobile">
-
-						<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button twitter-share-button-post" data-text="{{ post.title }}" data-url="https://www.mammothflaskblog.org/post/{{ post.id }}" data-show-count="false"><img src="{{ url_for('static', filename='images/tweet_button.jpg') }}" alt=”Tweet This” title=”Tweet This" /></a><script nonce="{{ csp_nonce() }}" async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
-						<div class="fb-share-button fb-share-button-post" data-href="https://www.mammothflaskblog.org/post/{{ post.id }}" data-layout="button" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.mammothflaskblog.org%2Fpost%2F{{ post.id }}%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div> 
-
+	    <div class="box-2">
+	    	<div class="title-section-top">
+    			<div class="section-username">
+      				<a class="mr-2 article-username" 
+      						href="{{ url_for(
+      						'users.user_posts', 
+      						username=post.author.username) }}">
+      					{{ post.author.username }}
+      				</a>
+      		</div>
+					<div class="section-share-buttons"
+							id="fb-twitter-buttons-desktop">
+						<a href="https://twitter.com/share?ref_src=twsrc%5Etfw"
+								class="twitter-share-button twitter-share-button-post"
+								data-text="{{ post.title }}"
+								data-url="https://www.mammothflaskblog.org/post/{{ post.id }}"
+								data-show-count="false">
+							<img src="{{ url_for(
+									'static', filename='images/tweet_button.jpg') }}"
+									alt=”Tweet This” title=”Tweet This" />
+						</a>
+						<script nonce="{{ csp_nonce() }}" async
+								src="https://platform.twitter.com/widgets.js"
+								charset="utf-8">
+						</script>
+						<div class="fb-share-button fb-share-button-post"
+								data-href="https://www.mammothflaskblog.org/post/{{ post.id }}"
+								data-layout="button" data-size="small">
+							<a target="_blank" 
+									href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.mammothflaskblog.org%2Fpost%2F{{ post.id }}%2F&amp;src=sdkpreparse" 
+									class="fb-xfbml-parse-ignore">
+								Share
+							</a>
+						</div>
 					</div>
-		    </div>
-		  	
+				</div>
+				<div class="title-section-bottom">
+		    	<h5 class="article-title">
+		    		<a class="article-title" 
+		    				href="{{ url_for('posts.post', post_id=post.id) }}">
+		    			{{ post.title }}
+		    		</a>
+		    	</h5>
+				</div>
+			</div>
 		</div>
-	{% endfor %}
-	{% for page_num in posts.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
-      {% if page_num %}
-        {% if posts.page == page_num %}
-          <a class="btn btn-info mb-4" href="{{ url_for('users.user_posts', username=user.username, page=page_num) }}">{{ page_num }}</a>
-        {% else %}
-          <a class="btn btn-outline-info mb-4" href="{{ url_for('users.user_posts', username=user.username, page=page_num) }}">{{ page_num }}</a>
-        {% endif %}
-      {% else %}
-        ...
-      {% endif %}
-    {% endfor %}
+		<div class="media-body">
+    	{% if post.main_image_filename %}
+	    	<img class="img-responsive centered-image bordered-image"
+	    			src="{{ url_for(
+	    			'static', filename=post.main_image_filename) }}">
+	    	{% if post.main_image_caption %}
+	    		<p class="centered-text">
+	    			<small>{{ post.main_image_caption }}</small>
+	    		</p>
+	    	{% else %}
+	    		<br>
+	    	{% endif %}
+    	{% endif %}
+    	<div class="section-date">
+      	<small>
+      		Posted {{ post.date_posted.strftime('%A, %B %-d, %Y') }}
+      	</small>
+      </div>
+    	<p class="article-content">{{ post.content }}</p>
+    	{% if post.link_href %}
+    	<p class="article_content centered-text">
+    		<a class="content-link" href={{ post.link_href }}>
+    			{{ post.link_description }}
+    		</a>
+    	</p>
+    	{% endif %}<br>
+    	{% if post.extra_images_filenames %}
+	    	{% for extra_image in post.extra_images_filenames.split('|') %}
+		    	{% if "~" in extra_image %}
+		    		<img class="img-responsive centered-image bordered-image"
+		    				src="{{ url_for(
+		    				'static', filename=extra_image.split("~")[0]) }}">
+		    		{% if extra_image.split("~")[1] != "No caption" %}
+		    			<p class="centered-text">
+		    				<small>{{ extra_image.split("~")[1] }}</small>
+		    			</p>
+		    		{% else %}
+		    			<br>
+		    		{% endif %}
+		    	{% else %}
+		    		<img class="img-responsive centered-image bordered-image"
+		    				src="{{ url_for('static', filename=extra_image) }}">
+		    		<br>
+		    	{% endif %}
+	    	{% endfor %}
+    	{% endif %}
+  		<div class="section-share-buttons" 
+  				id="fb-twitter-buttons-mobile">
+				<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" 
+						class="twitter-share-button twitter-share-button-post"
+						data-text="{{ post.title }}"
+						data-url="https://www.mammothflaskblog.org/post/{{ post.id }}"
+						data-show-count="false"><img src="{{ url_for(
+						'static', filename='images/tweet_button.jpg') }}"
+						alt=”Tweet This” title=”Tweet This" />
+				</a>
+				<script nonce="{{ csp_nonce() }}" async
+						src="https://platform.twitter.com/widgets.js"
+						charset="utf-8">
+				</script>
+				<div class="fb-share-button fb-share-button-post"
+						data-href="https://www.mammothflaskblog.org/post/{{ post.id }}"
+						data-layout="button" data-size="small">
+					<a target="_blank"
+							href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.mammothflaskblog.org%2Fpost%2F{{ post.id }}%2F&amp;src=sdkpreparse"
+							class="fb-xfbml-parse-ignore">
+						Share
+					</a>
+				</div> 
+			</div>
+	  </div>
+	</div>
+{% endfor %}
+{% for page_num in posts.iter_pages(
+		left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+  {% if page_num %}
+    {% if posts.page == page_num %}
+      <a class="btn btn-info mb-4"
+      		href="{{ url_for(
+      		'users.user_posts', username=user.username, page=page_num) }}">
+      	{{ page_num }}
+      </a>
+    {% else %}
+      <a class="btn btn-outline-info mb-4"
+      		href="{{ url_for(
+      		'users.user_posts', username=user.username, page=page_num) }}">
+      	{{ page_num }}
+      </a>
+    {% endif %}
+  {% else %}
+    ...
+  {% endif %}
+{% endfor %}
 {% endblock content %}

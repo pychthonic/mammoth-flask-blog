@@ -1,57 +1,36 @@
 {% extends "layout.html" %}
 {% block content %}
-	<div class="content-section">
-		<form method="POST" enctype="multipart/form-data" action = "">
-			{{ form.hidden_tag() }}
-			<fieldset class="form-group">
-
-				<h3 class="bottom-border-line centered-text">Update Carousel Slide<br><br></h3>
-
-				<div class="form-group bottom-border-line">
-					<p>Image:</p>
-					<img class="img-responsive" src="{{ url_for('static', filename=carousel_slide.image_filename) }}"> <br>
-				</div>
-
-				<div class="form-group bottom-border-line">
-
-					<p>Caption:</p>
-
-					{% if form.caption.errors %}
-						{{ form.caption(class="form-control form-control-lg is-invalid") }}
-						<div class="invalid-feedback">
-							{% for error in form.caption.errors %}
-								<span>{{ error }}</span>
-							{% endfor %}
-						</div><br>
-					{% else %}
-						{{ form.caption(class="form-control form-control-lg") }}<br>
-					{% endif %}
-				</div>
-
-
-
-
-
-
-			<div class="form-group centered-text">
-				{{ form.submit_update(class="btn btn-outline-info") }}
-			</div>
-
-
-
-			</fieldset>
-
-
-			
-
-
-		</form>
-	</div>
+<div class="content-section">
+  <form method="POST" enctype="multipart/form-data" action = "">
+    {{ form.hidden_tag() }}
+    <fieldset class="form-group">
+      <h3 class="bottom-border-line centered-text">
+        Update Carousel Slide<br><br>
+      </h3>
+      <div class="form-group bottom-border-line">
+        <p>Image:</p>
+        <img class="img-responsive" alt="carousel image - see caption
+            for description" src="{{ url_for(
+            'static', filename=carousel_slide.image_filename) }}"><br>
+      </div>
+      <div class="form-group bottom-border-line">
+        <p>Caption:</p>
+        {% if form.caption.errors %}
+          {{ form.caption(
+              class="form-control form-control-lg is-invalid") }}
+          <div class="invalid-feedback">
+            {% for error in form.caption.errors %}
+              <span>{{ error }}</span>
+            {% endfor %}
+          </div><br>
+        {% else %}
+          {{ form.caption(class="form-control form-control-lg") }}<br>
+        {% endif %}
+      </div>
+      <div class="form-group centered-text">
+        {{ form.submit_update(class="btn btn-outline-info") }}
+      </div>
+    </fieldset>
+  </form>
+</div>
 {% endblock content %}
-
-
-
-
-
-
-
