@@ -30,12 +30,10 @@ class MultiFileAllowed(object):
 				filename = data.filename.lower()
 				if isinstance(self.upload_set, Iterable):
 					if filename.split('.')[1] not in self.upload_set:
-						flash(f"File does not have approved extension: {', '.join(
-								self.upload_set)}", 'error')
+						flash(f"File does not have approved extension: {', '.join(self.upload_set)}", 'error')
 						raise StopValidation(
 								self.message or field.gettext(
-								f"File does not have approved extension: {', '.join(
-								self.upload_set)}"))
+								f"File does not have approved extension: {', '.join(self.upload_set)}"))
 
 
 class PostForm(FlaskForm):

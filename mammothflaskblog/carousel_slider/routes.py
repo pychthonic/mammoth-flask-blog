@@ -30,9 +30,9 @@ def new_carousel_slide():
                 CarouselSlider).order_by(
                 CarouselSlider.id.desc()).first()
         image_file = form.image_file.data
-        filename = "carousel_image_"
-                 + str(carousel_slider.id)
-                 + os.path.splitext(image_file.filename)[1]
+        filename = ("carousel_image_"
+                + str(carousel_slider.id)
+                + os.path.splitext(image_file.filename)[1])
         path_plus_filename = os.path.join(
                 'mammothflaskblog/static/images/carousel-images',
                 filename)
@@ -95,8 +95,9 @@ def update_carousel_slide(slide_id):
 def delete_slide(slide_id):
     carousel_slide = CarouselSlider.query.get_or_404(slide_id)
 
-    file_path_to_delete = "mammothflaskblog/static/" 
-                        + carousel_slide.image_filename
+    file_path_to_delete = (
+            "mammothflaskblog/static/" 
+            + carousel_slide.image_filename)
     if os.path.isfile(file_path_to_delete):
         os.remove(file_path_to_delete)
 

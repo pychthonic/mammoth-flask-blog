@@ -46,13 +46,14 @@ def new_issue():
 
         if form.linux_for_you_pdf.data:
             new_issue = form.linux_for_you_pdf.data
-            filename_pdf = "linux_for_you_issue_" 
-                         + str(issue.issue_number)
-                         + "_"
-                         + issue.month
-                         + "_"
-                         + str(issue.year)
-                         + ".pdf"
+            filename_pdf = (
+                    "linux_for_you_issue_" 
+                    + str(issue.issue_number)
+                    + "_"
+                    + issue.month
+                    + "_"
+                    + str(issue.year)
+                    + ".pdf")
             path_plus_filename_pdf = os.path.join(
                     'mammothflaskblog/static/pdfs', filename_pdf)
             new_issue.save(path_plus_filename_pdf)
@@ -64,13 +65,15 @@ def new_issue():
                     last_page=1,
                     fmt='jpg')
 
-            filename_thumbnail = "linux_for_you_issue_"
-                                + str(issue.issue_number)
-                                + "_" + issue.month
-                                + "_"
-                                + str(issue.year)
-                                + "_thumbnail"
-                                + ".jpg"
+            filename_thumbnail = (
+                    "linux_for_you_issue_"
+                    + str(issue.issue_number)
+                    + "_" 
+                    + issue.month
+                    + "_"
+                    + str(issue.year)
+                    + "_thumbnail"
+                    + ".jpg")
             path_plus_filename_thumbnail = os.path.join(
                     'mammothflaskblog/static/pdfs',
                     filename_thumbnail)

@@ -36,9 +36,10 @@ def new_post():
 
         if form.main_photo.data:
             main_image = form.main_photo.data
-            filename = "image"
-                     + str(post.id)
-                     + os.path.splitext(main_image.filename)[1]
+            filename = (
+                    "image"
+                    + str(post.id)
+                    + os.path.splitext(main_image.filename)[1])
             path_plus_filename = os.path.join(
                     'mammothflaskblog/static/images', filename)
             main_image.save(path_plus_filename)
@@ -52,10 +53,11 @@ def new_post():
             extra_image_count = 0
             extra_image_list_string = ""
             for image in extra_images:
-                filename = "image"
-                         + str(post.id)
-                         + letters[extra_image_count]
-                         + os.path.splitext(image.filename)[1]
+                filename = (
+                        "image"
+                        + str(post.id)
+                        + letters[extra_image_count]
+                        + os.path.splitext(image.filename)[1])
                 path_plus_filename = os.path.join(
                         'mammothflaskblog/static/images', filename)
                 image.save(path_plus_filename)
@@ -129,14 +131,16 @@ def update_post(post_id):
 
         if form.main_photo.data:
             if post.main_image_filename:
-                file_path_to_delete = "mammothflaskblog/static/"
-                                    + post.main_image_filename
+                file_path_to_delete = (
+                                       "mammothflaskblog/static/"
+                                       + post.main_image_filename)
                 if os.path.isfile(file_path_to_delete):
                     os.remove(file_path_to_delete)
             main_image = form.main_photo.data
-            filename = "image"
-                     + str(post.id)
-                     + os.path.splitext(main_image.filename)[1]
+            filename = (
+                    "image"
+                    + str(post.id)
+                    + os.path.splitext(main_image.filename)[1])
             path_plus_filename = os.path.join(
                     'mammothflaskblog/static/images', filename)
             main_image.save(path_plus_filename)
@@ -152,8 +156,9 @@ def update_post(post_id):
                 for file_to_delete in filenames_to_delete:
                     if "~" in file_to_delete:
                         file_to_delete = file_to_delete.split("~")[0]
-                    file_path_to_delete = "mammothflaskblog/static/"
-                                        + file_to_delete
+                    file_path_to_delete = (
+                            "mammothflaskblog/static/"
+                            + file_to_delete)
                     if os.path.isfile(file_path_to_delete):
                         os.remove(file_path_to_delete)
 
@@ -162,10 +167,11 @@ def update_post(post_id):
             extra_image_count = 0
             extra_image_list_string = ""
             for image in extra_images:
-                filename = "image"
-                         + str(post.id)
-                         + letters[extra_image_count]
-                         + os.path.splitext(image.filename)[1]
+                filename = (
+                        "image"
+                        + str(post.id)
+                        + letters[extra_image_count]
+                        + os.path.splitext(image.filename)[1])
                 path_plus_filename = os.path.join(
                         'mammothflaskblog/static/images', filename)
                 image.save(path_plus_filename)

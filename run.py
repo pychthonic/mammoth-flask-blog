@@ -3,21 +3,21 @@ from flask_talisman import Talisman
 
 csp = {
         'default-src': ['\'self\'',
-        	'*.facebook.com',
-        	'*.paypal.com',
-        	'*.facebook.net',
-        	'*.paypalobjects.com',
-        	'*.twitter.com',
+                '*.facebook.com',
+                '*.paypal.com',
+                '*.facebook.net',
+                '*.paypalobjects.com',
+                '*.twitter.com',
                 '*.bootstrapcdn.com',
                 '*.jquery.com',
 
                 ],
         'script-src': ['\'self\'',
-        	'*.facebook.com',
-        	'*.paypal.com',
-        	'*.facebook.net',
-        	'*.paypalobjects.com',
-        	'*.twitter.com',
+                '*.facebook.com',
+                '*.paypal.com',
+                '*.facebook.net',
+                '*.paypalobjects.com',
+                '*.twitter.com',
                 '*.bootstrapcdn.com',
                 '*.jquery.com',
                 '*.cloudflare.com']
@@ -31,6 +31,8 @@ talisman = Talisman(app,
         )
 
 if __name__ == '__main__':
-	app.run(host="127.0.0.1", port=5001, threaded=True, debug=True)
-
-        # host="10.0.0.101", 
+        app.run(
+                host="127.0.0.1",
+                port=5001,
+                threaded=True,
+                debug=True)

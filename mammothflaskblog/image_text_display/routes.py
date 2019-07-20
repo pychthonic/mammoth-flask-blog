@@ -52,9 +52,10 @@ def new_text_and_image():
             text_and_image = db.session.query(TextAndImage).order_by(
                     TextAndImage.id.desc()).first()
             image_file = form.image_file.data
-            filename = "letter_image"
-                     + str(text_and_image.id)
-                     + os.path.splitext(image_file.filename)[1]
+            filename = (
+                    "letter_image"
+                    + str(text_and_image.id)
+                    + os.path.splitext(image_file.filename)[1])
             path_plus_filename = os.path.join(
                     'mammothflaskblog/static/text_and_images',
                     filename)
@@ -92,14 +93,16 @@ def update_text_and_image(text_and_image_id):
 
         if form.image_file.data:
             if text_and_image.image_filename:
-                file_path_to_delete = "mammothflaskblog/static/"
-                                    + text_and_image.image_filename
+                file_path_to_delete = (
+                        "mammothflaskblog/static/"
+                        + text_and_image.image_filename)
                 if os.path.isfile(file_path_to_delete):
                     os.remove(file_path_to_delete)
             image_file = form.image_file.data
-            filename = "letter_image" 
-                     + str(text_and_image.id)
-                     + os.path.splitext(image_file.filename)[1]
+            filename = (
+                    "letter_image" 
+                    + str(text_and_image.id)
+                    + os.path.splitext(image_file.filename)[1])
             path_plus_filename = os.path.join(
                     'mammothflaskblog/static/text_and_images',
                     filename)
@@ -131,8 +134,9 @@ def delete_text_and_image(text_and_image_id):
     text_and_image = TextAndImage.query.get_or_404(text_and_image_id)
 
     if text_and_image.image_filename:
-        file_path_to_delete = "mammothflaskblog/static/"
-                            + text_and_image.image_filename
+        file_path_to_delete = (
+                "mammothflaskblog/static/"
+                + text_and_image.image_filename)
         if os.path.isfile(file_path_to_delete):
             os.remove(file_path_to_delete)
 
