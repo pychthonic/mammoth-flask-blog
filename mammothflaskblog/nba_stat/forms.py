@@ -154,8 +154,7 @@ player_selectfield_choices = [
 
 
 class NBAStatForm(FlaskForm):
-    name = SelectField(
-                       'Name',
+    name = SelectField('Name',
                        choices=)
     position = SelectField('Position',
                            choices=[
