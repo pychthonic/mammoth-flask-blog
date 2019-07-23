@@ -1,4 +1,8 @@
 # mammoth-flask-blog
+
+Check out the code in action at:
+https://mammothflaskblog.org
+
 Flask-based web app with image carousel, pdf viewer and uploader, information submission, nba stat database search, etc.
 
 It looks good on both computers and mobile phones.
