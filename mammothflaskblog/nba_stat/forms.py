@@ -212,9 +212,8 @@ class NBAStatForm(FlaskForm):
     age = SelectField('Age', coerce=int, default=("", ""),
                       choices=age_list)
     age_range = SelectField(
-            'At Least, At Most, Equal To',
-            choices=[("", ""), (">=", "At Least"), ("<=", "At Most"),
-            ("=", "Equal To")]
+            'At Least, At Most',
+            choices=[("", ""), (">=", "At Least"), ("<=", "At Most")]
             )
 
     games_list = [(num, num) for num in range(5, 81, 5)]
@@ -223,17 +222,15 @@ class NBAStatForm(FlaskForm):
             'Games Played', coerce=int, default=("",""),
             choices=games_list)
     games_range = SelectField(
-            'At Least, At Most, Equal To',
-            choices=[("", ""), (">=", "At Least"), ("<=", "At Most"),
-            ("=", "Equal To")])
+            'At Least, At Most',
+            choices=[("", ""), (">=", "At Least"), ("<=", "At Most")])
 
     games_started = SelectField(
             'Games Started', coerce=int, default=("",""),
             choices=games_list)
     games_started_range = SelectField(
-            'At Least, At Most, Equal To',
-            choices=[("", ""), (">=", "At Least"), ("<=", "At Most"),
-            ("=", "Equal To")])
+            'At Least, At Most',
+            choices=[("", ""), (">=", "At Least"), ("<=", "At Most")])
 
     minutes_list = [(num, num) for num in range(200, 3201, 200)]
     minutes_list.insert(0, blank_tuple)
@@ -241,9 +238,8 @@ class NBAStatForm(FlaskForm):
             'Minutes Played', coerce=int, default=("",""),
             choices=minutes_list)
     minutes_range = SelectField(
-            'At Least, At Most, Equal To',
-            choices=[("", ""), (">=", "At Least"), ("<=", "At Most"),
-            ("=", "Equal To")])
+            'At Least, At Most',
+            choices=[("", ""), (">=", "At Least"), ("<=", "At Most")])
 
     points_list = [(num, num) for num in range(200, 3001, 200)]
     points_list.insert(0, blank_tuple)
@@ -251,9 +247,8 @@ class NBAStatForm(FlaskForm):
             'Total Points', coerce=int, default=("",""),
             choices=points_list)
     points_range = SelectField(
-            'At Least, At Most, Equal To',
-            choices=[("", ""), (">=", "At Least"), ("<=", "At Most"),
-            ("=", "Equal To")])
+            'At Least, At Most',
+            choices=[("", ""), (">=", "At Least"), ("<=", "At Most")])
 
     field_goal_list = [(num, num) for num in range(100, 901, 100)]
     field_goal_list.insert(0, blank_tuple)
@@ -261,9 +256,8 @@ class NBAStatForm(FlaskForm):
             'Total Field Goals', coerce=int, default=("",""),
             choices=field_goal_list)
     field_goal_range = SelectField(
-            'At Least, At Most, Equal To',
-            choices=[("", ""), (">=", "At Least"), ("<=", "At Most"),
-            ("=", "Equal To")])
+            'At Least, At Most',
+            choices=[("", ""), (">=", "At Least"), ("<=", "At Most")])
 
     field_goal_attempts_list = [
             (num, num) for num in range(200, 2001, 200)]
@@ -272,9 +266,8 @@ class NBAStatForm(FlaskForm):
             'Total Field Goal Attempts', coerce=int, default=("",""),
             choices=field_goal_attempts_list)
     field_goal_attempts_range = SelectField(
-            'At Least, At Most, Equal To',
-            choices=[("", ""), (">=", "At Least"), ("<=", "At Most"),
-            ("=", "Equal To")])
+            'At Least, At Most',
+            choices=[("", ""), (">=", "At Least"), ("<=", "At Most")])
 
     field_goal_percentage_list = [
             (num, str(num) + "%") for num in range(5, 105, 5)]
@@ -283,7 +276,7 @@ class NBAStatForm(FlaskForm):
             'Field Goal Percentage', coerce=int, default=("",""),
             choices=field_goal_percentage_list)
     field_goal_percentage_range = SelectField(
-            'At Least, At Most, Equal To',
+            'At Least, At Most',
             choices=[("", ""), (">=", "At Least"), ("<=", "At Most")])
 
     three_point_shots_made_list = [
@@ -314,7 +307,7 @@ class NBAStatForm(FlaskForm):
             'Three Point Percentage', coerce=int, default=("",""),
             choices=three_point_percentage_list)
     three_point_percentage_range = SelectField(
-            'At Least, At Most, Equal To',
+            'At Least, At Most',
             choices=[("", ""), (">=", "At Least"), ("<=", "At Most")])
 
     two_point_shots_made_list = [
@@ -344,7 +337,7 @@ class NBAStatForm(FlaskForm):
             'Two Point Percentage', coerce=int, default=("",""),
             choices=two_point_percentage_list)
     two_point_percentage_range = SelectField(
-            'At Least, At Most, Equal To',
+            'At Least, At Most',
             choices=[("", ""), (">=", "At Least"), ("<=", "At Most")])
 
     free_throws_made_list = [(num, num) for num in range(50, 800, 50)]
@@ -373,7 +366,7 @@ class NBAStatForm(FlaskForm):
             'Free Throw Percentage', coerce=int, default=("",""),
             choices=free_throw_percentage_list)
     free_throw_percentage_range = SelectField(
-            'At Least, At Most, Equal To',
+            'At Least, At Most',
             choices=[("", ""), (">=", "At Least"), ("<=", "At Most")])
 
     offensive_rebounds_list = [

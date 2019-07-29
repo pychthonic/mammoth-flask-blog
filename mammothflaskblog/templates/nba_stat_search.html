@@ -24,46 +24,46 @@
         </p>
 
         <div class="form-group bottom-border-line">
-          <p class="centered-text">
+          <p>
             {{ form.name.label(class="form-control-label") }}
           </p>
           {% if form.name.errors %}
             {{ form.name(
-                class="form-control form-control-lg is-invalid") }}
+                class="form-control form-control-lg form-width is-invalid") }}
             <div class="invalid-feedback">
               {% for error in form.name.errors %}
                 <span>{{ error }}</span>
               {% endfor %}
             </div><br>
           {% else %}
-            {{ form.name(class="form-control form-control-lg") }}<br>
+            {{ form.name(class="form-control form-control-lg form-width") }}<br>
           {% endif %}
         </div>
 
         <div class="form-group bottom-border-line">
-          <p class="centered-text">
+          <p>
             {{ form.team.label(class="form-control-label") }}
           </p>
           {% if form.team.errors %}
             {{ form.team(
-                class="form-control form-control-lg is-invalid") }}
+                class="form-control form-control-lg form-width is-invalid") }}
             <div class="invalid-feedback">
               {% for error in form.team.errors %}
                 <span>{{ error }}</span>
               {% endfor %}
             </div><br>
           {% else %}
-            {{ form.team(class="form-control form-control-lg") }}<br>
+            {{ form.team(class="form-control form-control-lg form-width") }}<br>
           {% endif %}
         </div>
 
         <div class="form-group bottom-border-line">
-          <p class="centered-text">
+          <p>
             {{ form.position.label(class="form-control-label") }}
           </p>
           {% if form.position.errors %}
             {{ form.position(
-                class="form-control form-control-lg is-invalid") }}
+                class="form-control form-control-lg form-width is-invalid") }}
             <div class="invalid-feedback">
               {% for error in form.position.errors %}
                 <span>{{ error }}</span>
@@ -71,17 +71,17 @@
             </div><br>
           {% else %}
             {{ form.position(
-                class="form-control form-control-lg") }}<br>
+                class="form-control form-control-lg form-width") }}<br>
           {% endif %}
         </div>
 
         <div class="form-group bottom-border-line">
-          <p class="centered-text">
+          <p>
             {{ form.age.label(class="form-control-label") }}
           </p>
           {% if form.age_range.errors %}
             {{ form.age_range(
-                class="form-control form-control-lg is-invalid") }}
+                class="form-control form-control-lg form-width is-invalid") }}
             <div class="invalid-feedback">
               {% for error in form.age_range.errors %}
                 <span>{{ error }}</span>
@@ -89,28 +89,28 @@
             </div><br>
           {% else %}
             {{ form.age_range(
-                class="form-control form-control-lg") }}<br>
+                class="form-control form-control-lg form-width") }}<br>
           {% endif %}
           {% if form.age.errors %}
             {{ form.age(
-                class="form-control form-control-lg is-invalid") }}
+                class="form-control form-control-lg form-width is-invalid") }}
             <div class="invalid-feedback">
               {% for error in form.age.errors %}
                 <span>{{ error }}</span>
               {% endfor %}
             </div><br>
           {% else %}
-            {{ form.age(class="form-control form-control-lg") }}<br>
+            {{ form.age(class="form-control form-control-lg form-width") }}<br>
           {% endif %}
         </div>
 
         <div class="form-group bottom-border-line">
-          <p class="centered-text">
+          <p>
             {{ form.games.label(class="form-control-label") }}
           </p>
           {% if form.games_range.errors %}
             {{ form.games_range(
-                class="form-control form-control-lg is-invalid") }}
+                class="form-control form-control-lg form-width is-invalid") }}
             <div class="invalid-feedback">
               {% for error in form.games_range.errors %}
                 <span>{{ error }}</span>
@@ -118,28 +118,28 @@
             </div><br>
           {% else %}
             {{ form.games_range(
-                class="form-control form-control-lg") }}<br>
+                class="form-control form-control-lg form-width") }}<br>
           {% endif %}
           {% if form.games.errors %}
             {{ form.games(
-                class="form-control form-control-lg is-invalid") }}
+                class="form-control form-control-lg form-width is-invalid") }}
             <div class="invalid-feedback">
               {% for error in form.games.errors %}
                 <span>{{ error }}</span>
               {% endfor %}
             </div><br>
           {% else %}
-            {{ form.games(class="form-control form-control-lg") }}<br>
+            {{ form.games(class="form-control form-control-lg form-width") }}<br>
           {% endif %}
         </div>
 
         <div class="form-group bottom-border-line">
-          <p class="centered-text">
+          <p>
             {{ form.games_started.label(class="form-control-label") }}
           </p>
           {% if form.games_started_range.errors %}
             {{ form.games_started_range(
-                class="form-control form-control-lg is-invalid") }}
+                class="form-control form-control-lg form-width is-invalid") }}
             <div class="invalid-feedback">
               {% for error in form.games_started_range.errors %}
                 <span>{{ error }}</span>
@@ -147,11 +147,11 @@
             </div><br>
           {% else %}
             {{ form.games_started_range(
-                class="form-control form-control-lg") }}<br>
+                class="form-control form-control-lg form-width") }}<br>
           {% endif %}
           {% if form.games_started.errors %}
             {{ form.games_started(
-                class="form-control form-control-lg is-invalid") }}
+                class="form-control form-control-lg form-width is-invalid") }}
             <div class="invalid-feedback">
               {% for error in form.games_started.errors %}
                 <span>{{ error }}</span>
@@ -159,18 +159,18 @@
             </div><br>
           {% else %}
             {{ form.games_started(
-                class="form-control form-control-lg") }}<br>
+                class="form-control form-control-lg form-width") }}<br>
           {% endif %}
         </div>
 
         <div class="form-group bottom-border-line">
-          <p class="centered-text">
+          <p>
             {{ form.minutes_played.label(
                 class="form-control-label") }}
           </p>
           {% if form.minutes_range.errors %}
             {{ form.minutes_range(
-                class="form-control form-control-lg is-invalid") }}
+                class="form-control form-control-lg form-width is-invalid") }}
             <div class="invalid-feedback">
               {% for error in form.minutes_range.errors %}
                 <span>{{ error }}</span>
@@ -178,11 +178,11 @@
             </div><br>
           {% else %}
             {{ form.minutes_range(
-                class="form-control form-control-lg") }}<br>
+                class="form-control form-control-lg form-width") }}<br>
           {% endif %}
           {% if form.minutes_played.errors %}
             {{ form.minutes_played(
-                class="form-control form-control-lg is-invalid") }}
+                class="form-control form-control-lg form-width is-invalid") }}
             <div class="invalid-feedback">
               {% for error in form.minutes_played.errors %}
                 <span>{{ error }}</span>
@@ -190,17 +190,17 @@
             </div><br>
           {% else %}
             {{ form.minutes_played(
-                class="form-control form-control-lg") }}<br>
+                class="form-control form-control-lg form-width") }}<br>
           {% endif %}
         </div>
 
         <div class="form-group bottom-border-line">
-          <p class="centered-text">
+          <p>
             {{ form.points.label(class="form-control-label") }}
           </p>
           {% if form.points_range.errors %}
             {{ form.points_range(
-                class="form-control form-control-lg is-invalid") }}
+                class="form-control form-control-lg form-width is-invalid") }}
             <div class="invalid-feedback">
               {% for error in form.points_range.errors %}
                 <span>{{ error }}</span>
@@ -208,11 +208,11 @@
             </div><br>
           {% else %}
             {{ form.points_range(
-                class="form-control form-control-lg") }}<br>
+                class="form-control form-control-lg form-width") }}<br>
           {% endif %}
           {% if form.points.errors %}
             {{ form.points(
-                class="form-control form-control-lg is-invalid") }}
+                class="form-control form-control-lg form-width is-invalid") }}
             <div class="invalid-feedback">
               {% for error in form.points.errors %}
                 <span>{{ error }}</span>
@@ -220,17 +220,17 @@
             </div><br>
           {% else %}
             {{ form.points(
-                class="form-control form-control-lg") }}<br>
+                class="form-control form-control-lg form-width") }}<br>
           {% endif %}
         </div>
 
         <div class="form-group bottom-border-line">
-          <p class="centered-text">
+          <p>
             {{ form.field_goals.label(class="form-control-label") }}
           </p>
           {% if form.field_goal_range.errors %}
             {{ form.field_goal_range(
-                class="form-control form-control-lg is-invalid") }}
+                class="form-control form-control-lg form-width is-invalid") }}
             <div class="invalid-feedback">
               {% for error in form.field_goal_range.errors %}
                 <span>{{ error }}</span>
@@ -238,11 +238,11 @@
             </div><br>
           {% else %}
             {{ form.field_goal_range(
-                class="form-control form-control-lg") }}<br>
+                class="form-control form-control-lg form-width") }}<br>
           {% endif %}
           {% if form.field_goals.errors %}
             {{ form.field_goals(
-                class="form-control form-control-lg is-invalid") }}
+                class="form-control form-control-lg form-width is-invalid") }}
             <div class="invalid-feedback">
               {% for error in form.field_goals.errors %}
                 <span>{{ error }}</span>
@@ -250,18 +250,18 @@
             </div><br>
           {% else %}
             {{ form.field_goals(
-                class="form-control form-control-lg") }}<br>
+                class="form-control form-control-lg form-width") }}<br>
           {% endif %}
         </div>
 
         <div class="form-group bottom-border-line">
-          <p class="centered-text">
+          <p>
             {{ form.field_goal_attempts.label(
                 class="form-control-label") }}
           </p>
           {% if form.field_goal_attempts_range.errors %}
             {{ form.field_goal_attempts_range(
-                class="form-control form-control-lg is-invalid") }}
+                class="form-control form-control-lg form-width is-invalid") }}
             <div class="invalid-feedback">
               {% for error in form.field_goal_attempts_range.errors %}
                 <span>{{ error }}</span>
@@ -270,11 +270,11 @@
             <br>
           {% else %}
             {{ form.field_goal_attempts_range(
-                class="form-control form-control-lg") }}<br>
+                class="form-control form-control-lg form-width") }}<br>
           {% endif %}
           {% if form.field_goal_attempts.errors %}
             {{ form.field_goal_attempts(
-                class="form-control form-control-lg is-invalid") }}
+                class="form-control form-control-lg form-width is-invalid") }}
             <div class="invalid-feedback">
               {% for error in form.field_goal_attempts.errors %}
                 <span>{{ error }}</span>
@@ -282,18 +282,18 @@
             </div><br>
           {% else %}
             {{ form.field_goal_attempts(
-                class="form-control form-control-lg") }}<br>
+                class="form-control form-control-lg form-width") }}<br>
           {% endif %}
         </div>
 
         <div class="form-group bottom-border-line">
-          <p class="centered-text">
+          <p>
             {{ form.field_goal_percentage.label(
                 class="form-control-label") }}
           </p>
           {% if form.field_goal_percentage_range.errors %}
             {{ form.field_goal_percentage_range(
-                class="form-control form-control-lg is-invalid") }}
+                class="form-control form-control-lg form-width is-invalid") }}
             <div class="invalid-feedback">
               {% for error in form.field_goal_percentage_range.errors %}
                 <span>{{ error }}</span>
@@ -301,11 +301,11 @@
             </div><br>
           {% else %}
             {{ form.field_goal_percentage_range(
-                class="form-control form-control-lg") }}<br>
+                class="form-control form-control-lg form-width") }}<br>
           {% endif %}
           {% if form.field_goal_percentage.errors %}
             {{ form.field_goal_percentage(
-                class="form-control form-control-lg is-invalid") }}
+                class="form-control form-control-lg form-width is-invalid") }}
             <div class="invalid-feedback">
               {% for error in form.field_goal_percentage.errors %}
                 <span>{{ error }}</span>
@@ -313,18 +313,18 @@
             </div><br>
           {% else %}
             {{ form.field_goal_percentage(
-                class="form-control form-control-lg") }}<br>
+                class="form-control form-control-lg form-width") }}<br>
           {% endif %}
         </div>
 
         <div class="form-group bottom-border-line">
-          <p class="centered-text">
+          <p>
             {{ form.three_point_shots_made.label(
                 class="form-control-label") }}
           </p>
           {% if form.three_point_shots_made_range.errors %}
             {{ form.three_point_shots_made_range(
-                class="form-control form-control-lg is-invalid") }}
+                class="form-control form-control-lg form-width is-invalid") }}
             <div class="invalid-feedback">
               {% for error in form.three_point_shots_made_range.errors %}
                 <span>{{ error }}</span>
@@ -332,11 +332,11 @@
             </div><br>
           {% else %}
             {{ form.three_point_shots_made_range(
-                class="form-control form-control-lg") }}<br>
+                class="form-control form-control-lg form-width") }}<br>
           {% endif %}
           {% if form.three_point_shots_made.errors %}
             {{ form.three_point_shots_made(
-                class="form-control form-control-lg is-invalid") }}
+                class="form-control form-control-lg form-width is-invalid") }}
             <div class="invalid-feedback">
               {% for error in form.three_point_shots_made.errors %}
                 <span>{{ error }}</span>
@@ -344,18 +344,18 @@
             </div><br>
           {% else %}
             {{ form.three_point_shots_made(
-                class="form-control form-control-lg") }}<br>
+                class="form-control form-control-lg form-width") }}<br>
           {% endif %}
         </div>
 
         <div class="form-group bottom-border-line">
-          <p class="centered-text">
+          <p>
             {{ form.three_point_attempts.label(
                 class="form-control-label") }}
           </p>
           {% if form.three_point_attempts_range.errors %}
             {{ form.three_point_attempts_range(
-                class="form-control form-control-lg is-invalid") }}
+                class="form-control form-control-lg form-width is-invalid") }}
             <div class="invalid-feedback">
               {% for error in form.three_point_attempts_range.errors %}
                 <span>{{ error }}</span>
@@ -363,11 +363,11 @@
             </div><br>
           {% else %}
             {{ form.three_point_attempts_range(
-                class="form-control form-control-lg") }}<br>
+                class="form-control form-control-lg form-width") }}<br>
           {% endif %}
           {% if form.three_point_attempts.errors %}
             {{ form.three_point_attempts(
-                class="form-control form-control-lg is-invalid") }}
+                class="form-control form-control-lg form-width is-invalid") }}
             <div class="invalid-feedback">
               {% for error in form.three_point_attempts.errors %}
                 <span>{{ error }}</span>
@@ -375,18 +375,18 @@
             </div><br>
           {% else %}
             {{ form.three_point_attempts(
-                class="form-control form-control-lg") }}<br>
+                class="form-control form-control-lg form-width") }}<br>
           {% endif %}
         </div>
 
         <div class="form-group bottom-border-line">
-          <p class="centered-text">
+          <p>
             {{ form.three_point_percentage.label(
               class="form-control-label") }}
           </p>
           {% if form.three_point_percentage_range.errors %}
             {{ form.three_point_percentage_range(
-                class="form-control form-control-lg is-invalid") }}
+                class="form-control form-control-lg form-width is-invalid") }}
             <div class="invalid-feedback">
               {% for error in form.three_point_percentage_range.errors %}
                 <span>{{ error }}</span>
@@ -394,11 +394,11 @@
             </div><br>
           {% else %}
             {{ form.three_point_percentage_range(
-                class="form-control form-control-lg") }}<br>
+                class="form-control form-control-lg form-width") }}<br>
           {% endif %}
           {% if form.three_point_percentage.errors %}
             {{ form.three_point_percentage(
-                class="form-control form-control-lg is-invalid") }}
+                class="form-control form-control-lg form-width is-invalid") }}
             <div class="invalid-feedback">
               {% for error in form.three_point_percentage.errors %}
                 <span>{{ error }}</span>
@@ -406,18 +406,18 @@
             </div><br>
           {% else %}
             {{ form.three_point_percentage(
-                class="form-control form-control-lg") }}<br>
+                class="form-control form-control-lg form-width") }}<br>
           {% endif %}
         </div>
 
         <div class="form-group bottom-border-line">
-          <p class="centered-text">
+          <p>
             {{ form.two_point_shots_made.label(
                 class="form-control-label") }}
           </p>
           {% if form.two_point_shots_made_range.errors %}
             {{ form.two_point_shots_made_range(
-                class="form-control form-control-lg is-invalid") }}
+                class="form-control form-control-lg form-width is-invalid") }}
             <div class="invalid-feedback">
               {% for error in form.two_point_shots_made_range.errors %}
                 <span>{{ error }}</span>
@@ -425,11 +425,11 @@
             </div><br>
           {% else %}
             {{ form.two_point_shots_made_range(
-                class="form-control form-control-lg") }}<br>
+                class="form-control form-control-lg form-width") }}<br>
           {% endif %}
           {% if form.two_point_shots_made.errors %}
             {{ form.two_point_shots_made(
-                class="form-control form-control-lg is-invalid") }}
+                class="form-control form-control-lg form-width is-invalid") }}
             <div class="invalid-feedback">
               {% for error in form.two_point_shots_made.errors %}
                 <span>{{ error }}</span>
@@ -437,18 +437,18 @@
             </div><br>
           {% else %}
             {{ form.two_point_shots_made(
-                class="form-control form-control-lg") }}<br>
+                class="form-control form-control-lg form-width") }}<br>
           {% endif %}
         </div>
 
         <div class="form-group bottom-border-line">
-          <p class="centered-text">
+          <p>
             {{ form.two_point_attempts.label(
                 class="form-control-label") }}
           </p>
           {% if form.two_point_attempts_range.errors %}
             {{ form.two_point_attempts_range(
-                class="form-control form-control-lg is-invalid") }}
+                class="form-control form-control-lg form-width is-invalid") }}
             <div class="invalid-feedback">
               {% for error in form.two_point_attempts_range.errors %}
                 <span>{{ error }}</span>
@@ -457,11 +457,11 @@
             <br>
           {% else %}
             {{ form.two_point_attempts_range(
-                class="form-control form-control-lg") }}<br>
+                class="form-control form-control-lg form-width") }}<br>
           {% endif %}
           {% if form.two_point_attempts.errors %}
             {{ form.two_point_attempts(
-                class="form-control form-control-lg is-invalid") }}
+                class="form-control form-control-lg form-width is-invalid") }}
             <div class="invalid-feedback">
               {% for error in form.two_point_attempts.errors %}
                 <span>{{ error }}</span>
@@ -469,18 +469,18 @@
             </div><br>
           {% else %}
             {{ form.two_point_attempts(
-                class="form-control form-control-lg") }}<br>
+                class="form-control form-control-lg form-width") }}<br>
           {% endif %}
         </div>
 
         <div class="form-group bottom-border-line">
-          <p class="centered-text">
+          <p>
             {{ form.two_point_percentage.label(
                 class="form-control-label") }}
           </p>
           {% if form.two_point_percentage_range.errors %}
             {{ form.two_point_percentage_range(
-                class="form-control form-control-lg is-invalid") }}
+                class="form-control form-control-lg form-width is-invalid") }}
             <div class="invalid-feedback">
               {% for error in form.two_point_percentage_range.errors %}
                 <span>{{ error }}</span>
@@ -488,11 +488,11 @@
             </div><br>
           {% else %}
             {{ form.two_point_percentage_range(
-                class="form-control form-control-lg") }}<br>
+                class="form-control form-control-lg form-width") }}<br>
           {% endif %}
           {% if form.two_point_percentage.errors %}
             {{ form.two_point_percentage(
-                class="form-control form-control-lg is-invalid") }}
+                class="form-control form-control-lg form-width is-invalid") }}
             <div class="invalid-feedback">
               {% for error in form.two_point_percentage.errors %}
                 <span>{{ error }}</span>
@@ -500,18 +500,18 @@
             </div><br>
           {% else %}
             {{ form.two_point_percentage(
-                class="form-control form-control-lg") }}<br>
+                class="form-control form-control-lg form-width") }}<br>
           {% endif %}
         </div>
 
         <div class="form-group bottom-border-line">
-          <p class="centered-text">
+          <p>
             {{ form.free_throws_made.label(
                 class="form-control-label") }}
           </p>
           {% if form.free_throws_made_range.errors %}
             {{ form.free_throws_made_range(
-                class="form-control form-control-lg is-invalid") }}
+                class="form-control form-control-lg form-width is-invalid") }}
             <div class="invalid-feedback">
               {% for error in form.free_throws_made_range.errors %}
                 <span>{{ error }}</span>
@@ -519,11 +519,11 @@
             </div><br>
           {% else %}
             {{ form.free_throws_made_range(
-                class="form-control form-control-lg") }}<br>
+                class="form-control form-control-lg form-width") }}<br>
           {% endif %}
           {% if form.free_throws_made.errors %}
             {{ form.free_throws_made(
-                class="form-control form-control-lg is-invalid") }}
+                class="form-control form-control-lg form-width is-invalid") }}
             <div class="invalid-feedback">
               {% for error in form.free_throws_made.errors %}
                 <span>{{ error }}</span>
@@ -531,18 +531,18 @@
             </div><br>
           {% else %}
             {{ form.free_throws_made(
-                class="form-control form-control-lg") }}<br>
+                class="form-control form-control-lg form-width") }}<br>
           {% endif %}
         </div>
 
         <div class="form-group bottom-border-line">
-          <p class="centered-text">
+          <p>
             {{ form.free_throw_attempts.label(
                 class="form-control-label") }}
           </p>
           {% if form.free_throw_attempts_range.errors %}
             {{ form.free_throw_attempts_range(
-                class="form-control form-control-lg is-invalid") }}
+                class="form-control form-control-lg form-width is-invalid") }}
             <div class="invalid-feedback">
               {% for error in form.free_throw_attempts_range.errors %}
                 <span>{{ error }}</span>
@@ -550,11 +550,11 @@
             </div><br>
           {% else %}
             {{ form.free_throw_attempts_range(
-                class="form-control form-control-lg") }}<br>
+                class="form-control form-control-lg form-width") }}<br>
           {% endif %}
           {% if form.free_throw_attempts.errors %}
             {{ form.free_throw_attempts(
-                class="form-control form-control-lg is-invalid") }}
+                class="form-control form-control-lg form-width is-invalid") }}
             <div class="invalid-feedback">
               {% for error in form.free_throw_attempts.errors %}
                 <span>{{ error }}</span>
@@ -562,18 +562,18 @@
             </div><br>
           {% else %}
             {{ form.free_throw_attempts(
-                class="form-control form-control-lg") }}<br>
+                class="form-control form-control-lg form-width") }}<br>
           {% endif %}
         </div>
 
         <div class="form-group bottom-border-line">
-          <p class="centered-text">
+          <p>
             {{ form.free_throw_percentage.label(
                 class="form-control-label") }}
           </p>
           {% if form.free_throw_percentage_range.errors %}
             {{ form.free_throw_percentage_range(
-                class="form-control form-control-lg is-invalid") }}
+                class="form-control form-control-lg form-width is-invalid") }}
             <div class="invalid-feedback">
               {% for error in form.free_throw_percentage_range.errors %}
                 <span>{{ error }}</span>
@@ -581,11 +581,11 @@
             </div><br>
           {% else %}
             {{ form.free_throw_percentage_range(
-                class="form-control form-control-lg") }}<br>
+                class="form-control form-control-lg form-width") }}<br>
           {% endif %}
           {% if form.free_throw_percentage.errors %}
             {{ form.free_throw_percentage(
-                class="form-control form-control-lg is-invalid") }}
+                class="form-control form-control-lg form-width is-invalid") }}
             <div class="invalid-feedback">
               {% for error in form.free_throw_percentage.errors %}
                 <span>{{ error }}</span>
@@ -593,18 +593,18 @@
             </div><br>
           {% else %}
             {{ form.free_throw_percentage(
-                class="form-control form-control-lg") }}<br>
+                class="form-control form-control-lg form-width") }}<br>
           {% endif %}
         </div>
 
         <div class="form-group bottom-border-line">
-          <p class="centered-text">
+          <p>
             {{ form.offensive_rebounds.label(
                 class="form-control-label") }}
           </p>
           {% if form.offensive_rebounds_range.errors %}
             {{ form.offensive_rebounds_range(
-                class="form-control form-control-lg is-invalid") }}
+                class="form-control form-control-lg form-width is-invalid") }}
             <div class="invalid-feedback">
               {% for error in form.offensive_rebounds_range.errors %}
                 <span>{{ error }}</span>
@@ -612,11 +612,11 @@
             </div><br>
           {% else %}
             {{ form.offensive_rebounds_range(
-                class="form-control form-control-lg") }}<br>
+                class="form-control form-control-lg form-width") }}<br>
           {% endif %}
           {% if form.offensive_rebounds.errors %}
             {{ form.offensive_rebounds(
-                class="form-control form-control-lg is-invalid") }}
+                class="form-control form-control-lg form-width is-invalid") }}
             <div class="invalid-feedback">
               {% for error in form.offensive_rebounds.errors %}
                 <span>{{ error }}</span>
@@ -624,18 +624,18 @@
             </div><br>
           {% else %}
             {{ form.offensive_rebounds(
-                class="form-control form-control-lg") }}<br>
+                class="form-control form-control-lg form-width") }}<br>
           {% endif %}
         </div>
 
         <div class="form-group bottom-border-line">
-          <p class="centered-text">
+          <p>
             {{ form.defensive_rebounds.label(
                 class="form-control-label") }}
           </p>
           {% if form.defensive_rebounds_range.errors %}
             {{ form.defensive_rebounds_range(
-                class="form-control form-control-lg is-invalid") }}
+                class="form-control form-control-lg form-width is-invalid") }}
             <div class="invalid-feedback">
               {% for error in form.defensive_rebounds_range.errors %}
                 <span>{{ error }}</span>
@@ -643,11 +643,11 @@
             </div><br>
           {% else %}
             {{ form.defensive_rebounds_range(
-                class="form-control form-control-lg") }}<br>
+                class="form-control form-control-lg form-width") }}<br>
           {% endif %}
           {% if form.defensive_rebounds.errors %}
             {{ form.defensive_rebounds(
-                class="form-control form-control-lg is-invalid") }}
+                class="form-control form-control-lg form-width is-invalid") }}
             <div class="invalid-feedback">
               {% for error in form.defensive_rebounds.errors %}
                 <span>{{ error }}</span>
@@ -655,18 +655,18 @@
             </div><br>
           {% else %}
             {{ form.defensive_rebounds(
-                class="form-control form-control-lg") }}<br>
+                class="form-control form-control-lg form-width") }}<br>
           {% endif %}
         </div>
 
         <div class="form-group bottom-border-line">
-          <p class="centered-text">
+          <p>
             {{ form.total_rebounds.label(
                 class="form-control-label") }}
           </p>
           {% if form.total_rebounds_range.errors %}
             {{ form.total_rebounds_range(
-                class="form-control form-control-lg is-invalid") }}
+                class="form-control form-control-lg form-width is-invalid") }}
             <div class="invalid-feedback">
               {% for error in form.total_rebounds_range.errors %}
                 <span>{{ error }}</span>
@@ -674,11 +674,11 @@
             </div><br>
           {% else %}
             {{ form.total_rebounds_range(
-                class="form-control form-control-lg") }}<br>
+                class="form-control form-control-lg form-width") }}<br>
           {% endif %}
           {% if form.total_rebounds.errors %}
             {{ form.total_rebounds(
-                class="form-control form-control-lg is-invalid") }}
+                class="form-control form-control-lg form-width is-invalid") }}
             <div class="invalid-feedback">
               {% for error in form.total_rebounds.errors %}
                 <span>{{ error }}</span>
@@ -686,17 +686,17 @@
             </div><br>
           {% else %}
             {{ form.total_rebounds(
-                class="form-control form-control-lg") }}<br>
+                class="form-control form-control-lg form-width") }}<br>
           {% endif %}
         </div>
 
         <div class="form-group bottom-border-line">
-          <p class="centered-text">
+          <p>
             {{ form.assists.label(class="form-control-label") }}
           </p>
           {% if form.assists_range.errors %}
             {{ form.assists_range(
-                class="form-control form-control-lg is-invalid") }}
+                class="form-control form-control-lg form-width is-invalid") }}
             <div class="invalid-feedback">
               {% for error in form.assists_range.errors %}
                 <span>{{ error }}</span>
@@ -704,28 +704,28 @@
             </div><br>
           {% else %}
             {{ form.assists_range(
-                class="form-control form-control-lg") }}<br>
+                class="form-control form-control-lg form-width") }}<br>
           {% endif %}
           {% if form.assists.errors %}
             {{ form.assists(
-                class="form-control form-control-lg is-invalid") }}
+                class="form-control form-control-lg form-width is-invalid") }}
             <div class="invalid-feedback">
               {% for error in form.assists.errors %}
                 <span>{{ error }}</span>
               {% endfor %}
             </div><br>
           {% else %}
-            {{ form.assists(class="form-control form-control-lg") }}<br>
+            {{ form.assists(class="form-control form-control-lg form-width") }}<br>
           {% endif %}
         </div>
 
         <div class="form-group bottom-border-line">
-          <p class="centered-text">
+          <p>
             {{ form.steals.label(class="form-control-label") }}
           </p>
           {% if form.steals_range.errors %}
             {{ form.steals_range(
-                class="form-control form-control-lg is-invalid") }}
+                class="form-control form-control-lg form-width is-invalid") }}
             <div class="invalid-feedback">
               {% for error in form.steals_range.errors %}
                 <span>{{ error }}</span>
@@ -733,11 +733,11 @@
             </div><br>
           {% else %}
             {{ form.steals_range(
-                class="form-control form-control-lg") }}<br>
+                class="form-control form-control-lg form-width") }}<br>
           {% endif %}
           {% if form.steals.errors %}
             {{ form.steals(
-                class="form-control form-control-lg is-invalid") }}
+                class="form-control form-control-lg form-width is-invalid") }}
             <div class="invalid-feedback">
               {% for error in form.steals.errors %}
                 <span>{{ error }}</span>
@@ -745,17 +745,17 @@
             </div><br>
           {% else %}
             {{ form.steals(
-                class="form-control form-control-lg") }}<br>
+                class="form-control form-control-lg form-width") }}<br>
           {% endif %}
         </div>
 
         <div class="form-group bottom-border-line">
-          <p class="centered-text">
+          <p>
             {{ form.blocks.label(class="form-control-label") }}
           </p>
           {% if form.blocks_range.errors %}
             {{ form.blocks_range(
-                class="form-control form-control-lg is-invalid") }}
+                class="form-control form-control-lg form-width is-invalid") }}
             <div class="invalid-feedback">
               {% for error in form.blocks_range.errors %}
                 <span>{{ error }}</span>
@@ -763,11 +763,11 @@
             </div><br>
           {% else %}
             {{ form.blocks_range(
-                class="form-control form-control-lg") }}<br>
+                class="form-control form-control-lg form-width") }}<br>
           {% endif %}
           {% if form.blocks.errors %}
             {{ form.blocks(
-                class="form-control form-control-lg is-invalid") }}
+                class="form-control form-control-lg form-width is-invalid") }}
             <div class="invalid-feedback">
               {% for error in form.blocks.errors %}
                 <span>{{ error }}</span>
@@ -775,17 +775,17 @@
             </div><br>
           {% else %}
             {{ form.blocks(
-                class="form-control form-control-lg") }}<br>
+                class="form-control form-control-lg form-width") }}<br>
           {% endif %}
         </div>
 
         <div class="form-group bottom-border-line">
-          <p class="centered-text">
+          <p>
             {{ form.turnovers.label(class="form-control-label") }}
           </p>
           {% if form.turnovers_range.errors %}
             {{ form.turnovers_range(
-                class="form-control form-control-lg is-invalid") }}
+                class="form-control form-control-lg form-width is-invalid") }}
             <div class="invalid-feedback">
               {% for error in form.turnovers_range.errors %}
                 <span>{{ error }}</span>
@@ -793,11 +793,11 @@
             </div><br>
           {% else %}
             {{ form.turnovers_range(
-                class="form-control form-control-lg") }}<br>
+                class="form-control form-control-lg form-width") }}<br>
           {% endif %}
           {% if form.turnovers.errors %}
             {{ form.turnovers(
-                class="form-control form-control-lg is-invalid") }}
+                class="form-control form-control-lg form-width is-invalid") }}
             <div class="invalid-feedback">
               {% for error in form.turnovers.errors %}
                 <span>{{ error }}</span>
@@ -805,18 +805,18 @@
             </div><br>
           {% else %}
             {{ form.turnovers(
-                class="form-control form-control-lg") }}<br>
+                class="form-control form-control-lg form-width") }}<br>
           {% endif %}
         </div>
 
         <div class="form-group bottom-border-line">
-          <p class="centered-text">
+          <p>
             {{ form.personal_fouls.label(
                 class="form-control-label") }}
           </p>
           {% if form.personal_fouls_range.errors %}
             {{ form.personal_fouls_range(
-                class="form-control form-control-lg is-invalid") }}
+                class="form-control form-control-lg form-width is-invalid") }}
             <div class="invalid-feedback">
               {% for error in form.personal_fouls_range.errors %}
                 <span>{{ error }}</span>
@@ -824,11 +824,11 @@
             </div><br>
           {% else %}
             {{ form.personal_fouls_range(
-                class="form-control form-control-lg") }}<br>
+                class="form-control form-control-lg form-width") }}<br>
           {% endif %}
           {% if form.personal_fouls.errors %}
             {{ form.personal_fouls(
-                class="form-control form-control-lg is-invalid") }}
+                class="form-control form-control-lg form-width is-invalid") }}
             <div class="invalid-feedback">
               {% for error in form.personal_fouls.errors %}
                 <span>{{ error }}</span>
@@ -836,17 +836,17 @@
             </div><br>
           {% else %}
             {{ form.personal_fouls(
-                class="form-control form-control-lg") }}<br>
+                class="form-control form-control-lg form-width") }}<br>
           {% endif %}
         </div>
 
         <div class="form-group bottom-border-line">
-          <p class="centered-text">
+          <p>
             {{ form.sort_by.label(class="form-control-label") }}
           </p>
           {% if form.sort_by.errors %}
             {{ form.sort_by(
-                class="form-control form-control-lg is-invalid") }}
+                class="form-control form-control-lg form-width is-invalid") }}
             <div class="invalid-feedback">
               {% for error in form.sort_by.errors %}
                 <span>{{ error }}</span>
@@ -854,7 +854,7 @@
             </div><br>
           {% else %}
             {{ form.sort_by(
-                class="form-control form-control-lg") }}<br>
+                class="form-control form-control-lg form-width") }}<br>
           {% endif %}
         </div>
 
