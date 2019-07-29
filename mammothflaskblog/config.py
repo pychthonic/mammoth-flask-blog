@@ -1,7 +1,7 @@
 import json
 
 """
-For full functionality, create a json file in your etc folder 
+For full functionality, create a json file in your /etc folder 
 called 'mfb_config.json with the following key/value pairs:
 """
 
