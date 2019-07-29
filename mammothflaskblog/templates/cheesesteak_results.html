@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="page-content content-section">
+  <h2 class="bottom-border-line">Search Results</h2>
+  <p>The builder of this website neither encourages
+    nor discourages consuming a cheesesteak prepared at any of these
+    establishments. He does however encourage you to do so at John's Roast
+    Pork or Phillip's Steaks in South Philly.</p>
+</div>
+{% for search_result in results %}
+  {% if search_result['address'] %}
+    <article class="media content-section-post">
+      <div class="container">
+        <p>
+          {{ search_result['distance_to_cheesesteak'] }}:<br><br>
+          {{ search_result['name'] }}<br>
+          {{ search_result['address'] }}<br><br>
+          Phone: {{ search_result['phone'] }}<br>
+        </p>
+      </div>
+    </article>
+  {% endif %}
+{% endfor %}
+{% endblock content %}

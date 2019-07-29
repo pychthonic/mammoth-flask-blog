@@ -18,6 +18,8 @@ class Config:
     MAIL_USE_TLS = config.get('MAIL_USE_TLS') is not None
     MAIL_USERNAME = config.get('MAIL_USERNAME')
     MAIL_PASSWORD = config.get('MAIL_PASSWORD')
+    YELP_API_KEY = config.get('YELP_API_KEY')
+    YELP_CLIENT_ID = config.get('YELP_CLIENT_ID')
     ADMINS = ['mammothflaskblog@gmail.com']
     MFB_EMAIL = "mammothflaskblog@gmail.com"
     SITE_NAME = "MAMMOTH FLASK BLOG"

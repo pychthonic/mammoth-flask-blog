@@ -20,7 +20,6 @@ def create_app(config_class=Config):
     app.config.from_object(Config)
     mail.init_app(app)
     db.init_app(app)
-
     bcrypt.init_app(app)
     login_manager.init_app(app)
 
@@ -33,6 +32,7 @@ def create_app(config_class=Config):
     from mammothflaskblog.image_text_display.routes import image_text_display
     from mammothflaskblog.carousel_slider.routes import carousel_slider
     from mammothflaskblog.nba_stat.routes import nba_stat
+    from mammothflaskblog.cheesesteak.routes import cheesesteaks
 
     app.register_blueprint(users)
     app.register_blueprint(posts)
@@ -43,6 +43,7 @@ def create_app(config_class=Config):
     app.register_blueprint(image_text_display)
     app.register_blueprint(carousel_slider)
     app.register_blueprint(nba_stat)
+    app.register_blueprint(cheesesteaks)
 
     with app.app_context():
         db.create_all()

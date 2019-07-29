@@ -40,6 +40,9 @@ a:hover {
   flex: 1;
   flex-direction: column;
 }
+.form-width {
+  max-width: 400px;
+}
 
 /*
 Media queries to make the app look good on every screen size

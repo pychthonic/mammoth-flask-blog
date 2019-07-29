@@ -81,8 +81,8 @@
             {% else %}
               <ul class="list-group">
                 <a class="nav-item nav-link"  id="dropdown-item"
-                    href="#demo" data-toggle="collapse">
-                  Show/Hide Slideshow</a>
+                    href="{{ url_for('cheesesteak.new_cheesesteak_search')}}">
+                  Find Cheesesteak</a>
                 <a class="nav-item nav-link"  id="dropdown-item"
                     href="{{ url_for('nba_stat.search_nba_stats')}}">
                   NBA Stat Search</a>
@@ -105,6 +105,9 @@
                 <a class="nav-item nav-link" id="dropdown-item"
                     href="/display-text-and-images">
                   Image and Text Display</a>
+                <a class="nav-item nav-link"  id="dropdown-item"
+                    href="#demo" data-toggle="collapse">
+                    Show/Hide Slideshow</a>
               </ul>
             {% endif %}
           </div>
@@ -179,8 +182,9 @@
         <div class="main-column-right">
           <div class="content-section content-section-right-menu">
             <ul class="list-group">
-              <a class="nav-item nav-link" href="#demo"
-                  data-toggle="collapse">Show/Hide Slideshow</a>
+              <a class="nav-item nav-link"  id="dropdown-item"
+                  href="{{ url_for('cheesesteak.new_cheesesteak_search')}}">
+                  Find Cheesesteak</a>
               <a class="nav-item nav-link" href="{{ url_for(
                   'nba_stat.search_nba_stats')}}">NBA Stat Search</a>
               <a class="nav-item nav-link" href="{{ url_for(
@@ -200,6 +204,8 @@
               <a class="nav-item nav-link"
                   href="/display-text-and-images">
                 Image and Text Display</a>
+              <a class="nav-item nav-link" href="#demo"
+                  data-toggle="collapse">Show/Hide Slideshow</a>
               <div class="fb-share-button nav-item nav-link"
                   data-href="https://www.facebook.com/flaskband/"
                   data-layout="button_count" data-size="small">

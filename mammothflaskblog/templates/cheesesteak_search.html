@@ -1,0 +1,107 @@
+{% extends "layout.html" %}
+{% block content %}
+  <div class="content-section">
+    <form method="POST" action = "">
+      {{ form.hidden_tag() }}
+      <fieldset class="form-group">
+        <div class="bottom-border-line">
+          <h3 class=bottom-border-line>Find a cheesesteak</h3>
+          <p>Enter the information below for a list of nearby restaurants, bars
+            and delis that have cheesesteaks on their menu.</p>
+        </div>
+
+        <div class="form-group bottom-border-line">
+          <p>Street Number:</p>
+          {% if form.street_number.errors %}
+            {{ form.street_number(class="form-control form-control-lg form-width
+                is-invalid") }}
+            <div class="invalid-feedback">
+              {% for error in form.street_number.errors %}
+                <span>{{ error }}</span>
+              {% endfor %}
+            </div>
+          {% else %}
+            {{ form.street_number(class="form-control form-control-lg form-width") }}
+          {% endif %}<br>
+        </div>
+
+        <div class="form-group bottom-border-line">
+          <p>Street Name:</p>
+          {% if form.street_name.errors %}
+            {{ form.street_name(class="form-control form-control-lg form-width
+                is-invalid") }}
+            <div class="invalid-feedback">
+              {% for error in form.street_name.errors %}
+                <span>{{ error }}</span>
+              {% endfor %}
+            </div><br>
+          {% else %}
+            {{ form.street_name(class="form-control form-control-lg form-width") }}
+            <br>
+          {% endif %}
+        </div>
+        <div class="form-group bottom-border-line">
+          <p>City:</p>
+          {% if form.city.errors %}
+            {{ form.city(class="form-control form-control-lg form-width
+                is-invalid") }}
+            <div class="invalid-feedback">
+              {% for error in form.city.errors %}
+                <span>{{ error }}</span>
+              {% endfor %}
+            </div><br>
+          {% else %}
+            {{ form.city(class="form-control form-control-lg form-width") }}
+            <br>
+          {% endif %}
+        </div>
+        <div class="form-group bottom-border-line">
+          <p>State:</p>
+          {% if form.state.errors %}
+            {{ form.state(class="form-control form-control-lg form-width") }}
+            <div class="invalid-feedback">
+              {% for error in form.state.errors %}
+                <span>{{ error }}</span>
+              {% endfor %}
+            </div>
+          {% else %}
+            {{ form.state(class="form-control form-control-lg form-width") }}
+          {% endif %}<br>
+        </div>
+        <div class="form-group bottom-border-line">
+          <p>How many blocks would you travel for cheesesteak?</p>
+          {% if form.how_many_blocks.errors %}
+            {{ form.how_many_blocks(class="form-control form-control-lg form-width
+                is-invalid") }}
+            <div class="invalid-feedback">
+              {% for error in form.how_many_blocks.errors %}
+                <span>{{ error }}</span>
+              {% endfor %}
+            </div><br>
+          {% else %}
+            {{ form.how_many_blocks(class="form-control form-control-lg form-width") }}
+            <br>
+          {% endif %}
+        </div>
+        <div class="form-group bottom-border-line">
+          <p>Maximum results?</p>
+          {% if form.max_results.errors %}
+            {{ form.max_results(class="form-control form-control-lg form-width
+                is-invalid") }}
+            <div class="invalid-feedback">
+              {% for error in form.max_results.errors %}
+                <span>{{ error }}</span>
+              {% endfor %}
+            </div><br>
+          {% else %}
+            {{ form.max_results(class="form-control form-control-lg form-width") }}
+            <br>
+          {% endif %}
+        </div>
+      </fieldset>
+      <div class="form-group">
+        {{ form.submit(class="btn btn-outline-info") }}
+      </div>
+    </form>
+  </div>
+{% endblock content %}
