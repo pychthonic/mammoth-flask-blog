@@ -2,10 +2,11 @@ from flask import Blueprint
 from flask import redirect
 from flask import render_template
 from flask import url_for
+from flask_mail import Message
 
+from mammothflaskblog import mail
 from mammothflaskblog.models import CarouselSlider
 from mammothflaskblog.cheesesteak.forms import CheesesteakForm
-
 from mammothflaskblog.config import Config
 
 from math import sqrt
@@ -138,6 +139,17 @@ def new_cheesesteak_search():
                                          state,
                                          how_many_blocks,
                                          max_results)
+
+        msg = Message('Cheesesteak search', 
+                      sender=Config.MFB_EMAIL,
+                      recipients=[Config.MFB_EMAIL])
+        message_string = f"""<h4>Address: {full_street_addy}<br>
+City, State: {city}, {state}<br>
+# of blocks: {how_many_blocks}<br>
+max results: {max_results}<br><br>"""
+        message_string += "</h4>"
+        msg.html = message_string
+        mail.send(msg)
 
         return render_template('cheesesteak_results.html',
                 title=Config.SITE_NAME,

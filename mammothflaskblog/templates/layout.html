@@ -36,6 +36,7 @@
 -->
   <head>
     <meta charset="utf-8">
+    <link href="//db.onlinewebfonts.com/c/fc3da44724480f201b48bba4d9b26dd6?family=monofur" rel="stylesheet" type="text/css"/>
     <meta name="viewport" content="width=device-width,
         initial-scale=1, maximum-scale=1">
     <link rel="stylesheet"
@@ -81,15 +82,15 @@
             {% else %}
               <ul class="list-group">
                 <a class="nav-item nav-link"  id="dropdown-item"
-                    href="{{ url_for('cheesesteak.new_cheesesteak_search')}}">
-                  Find Cheesesteak</a>
+                    href="{{ url_for(
+                    'about_the_project.project_description')}}">
+                  About The Project</a>
                 <a class="nav-item nav-link"  id="dropdown-item"
                     href="{{ url_for('nba_stat.search_nba_stats')}}">
                   NBA Stat Search</a>
                 <a class="nav-item nav-link"  id="dropdown-item"
-                    href="{{ url_for(
-                    'about_the_project.project_description')}}">
-                  About The Project</a>
+                    href="{{ url_for('cheesesteak.new_cheesesteak_search')}}">
+                  Find Cheesesteak</a>
                 <a class="nav-item nav-link" id="dropdown-item"
                     href="{{ url_for('main.linux_for_you')}}">
                   Linux For You</a>
@@ -182,14 +183,14 @@
         <div class="main-column-right">
           <div class="content-section content-section-right-menu">
             <ul class="list-group">
-              <a class="nav-item nav-link"  id="dropdown-item"
-                  href="{{ url_for('cheesesteak.new_cheesesteak_search')}}">
-                  Find Cheesesteak</a>
-              <a class="nav-item nav-link" href="{{ url_for(
-                  'nba_stat.search_nba_stats')}}">NBA Stat Search</a>
               <a class="nav-item nav-link" href="{{ url_for(
                   'about_the_project.project_description')}}">
                 About The Project</a>
+              <a class="nav-item nav-link" href="{{ url_for(
+                  'nba_stat.search_nba_stats')}}">NBA Stat Search</a>
+              <a class="nav-item nav-link"  id="dropdown-item"
+                  href="{{ url_for('cheesesteak.new_cheesesteak_search')}}">
+                  Find Cheesesteak</a>
               <a class="nav-item nav-link" href="{{ url_for(
                   'main.linux_for_you')}}">Linux For You</a>
               <a class="nav-item nav-link"

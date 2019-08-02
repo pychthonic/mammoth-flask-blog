@@ -8,7 +8,6 @@ csp = {
                 '*.twitter.com',
                 '*.bootstrapcdn.com',
                 '*.jquery.com',
-
                 ],
         'script-src': ['\'self\'',
                 '*.facebook.com',

@@ -13,8 +13,13 @@ a {
   color: #ffffff;
 }
 a:hover {
-  color: #444444;
+  color: #000000;
+  text-decoration: none;
 }
+
+
+
+
 .bottom-border-line {
   border-bottom: 2px solid #e3e3e3;
   border-color: #000;
@@ -22,7 +27,7 @@ a:hover {
 }
 .content-section {
   background: #5f788a;
-  background: rgba(95, 120, 138, .80);
+  background: rgba(37, 78, 88, .95); rgba(0, 76, 76, .85); rgba(95, 120, 138, .80);
   padding: 10px 15px 10px 15px;
   border: 1px solid #dddddd;
   border-radius: 3px;
@@ -43,6 +48,8 @@ a:hover {
 .form-width {
   max-width: 400px;
 }
+
+
 
 /*
 Media queries to make the app look good on every screen size
@@ -228,14 +235,14 @@ h1, h2, h3, h4, h5, h6, p {
 }
 .contrasted-text h1, h2, h4 {
   font-family: Avantgarde;
-  text-shadow: #5f788a 9px 0 10px;
+  /* text-shadow: #5f788a 9px 0 10px;*/ 
   color: #000000;
   padding-bottom: 1px;
   margin-bottom: 4px;
 }
 .contrasted-text p, a {
   font-family: Avantgarde;
-  text-shadow: #5f788a 9px 0 10px;
+  /* text-shadow: #5f788a 9px 0 10px; */
   color: #000000;
 }
 span.text {
@@ -306,7 +313,7 @@ Carousel section
 }
 .content-section-slider {
   background: #5f788a;
-  background: rgba(95, 120, 138, .80);
+  background: rgba(49, 65, 82, .75); rgba(0, 76, 76, .85); rgba(95, 120, 138, .80);
   padding: 20px 20px 0px 20px;
   border: 1.5px solid #dddddd;
   border-radius: 3px;
@@ -323,7 +330,7 @@ Navigation Panel / General Navigation Menus
 */
 
 .bg-steel {
-  background: rgba(95, 120, 138, .97);
+  background: #254E58; #191938; rgba(95, 120, 138, .97);
 }
 .nav-item {
   color: #ffffff;
@@ -332,7 +339,7 @@ Navigation Panel / General Navigation Menus
   display: flex;
 }
 .site-header .navbar-nav .nav-link:hover {
-  color: #242424;
+  color: #242424; #83d0f2; #242424;
 }
 .site-header .navbar-nav .nav-link {
   color: #FFFFFF;
@@ -364,7 +371,7 @@ Post section
 
 .content-section-post {
   background: #5f788a;
-  background: rgba(95, 120, 138, .80);
+  background: rgba(49, 65, 82, .75); rgba(50, 50, 78, .9); rgba(95, 120, 138, .80);
   padding: 10px 20px 10px 20px;
   border: 1px solid #dddddd;
   border-radius: 3px;
@@ -381,14 +388,14 @@ Post section
   margin-top: 10px;
 }
 a.article-title:hover {
-  color: #ffffff;
+  color: #000000; #242424; #ffffff;
   text-decoration: none;
 }
 a.content-link {
   color: #000000;
 }
 a.content-link:hover {
-  color: #000000;
+  color: #242424; #000000;
 }
 .container-1 {
   display: flex;
@@ -438,10 +445,12 @@ PDF upload section
 */
 
 p.content-link-movement {
-  color: #000000;
+  color: #ffffff;
+  text-decoration: none;
 }
 p.content-link-movement:hover {
-  color: #000000;
+  color: #000000; #000000;
+  text-decoration: none;
 }
 
 
@@ -452,3 +461,5 @@ Stuff that needs to go last to make sure it happens
 .page-content-main {
   margin-top: 68px;
 }
+
+
