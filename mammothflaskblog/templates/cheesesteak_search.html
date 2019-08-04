@@ -11,32 +11,17 @@
         </div>
 
         <div class="form-group bottom-border-line">
-          <p>Street Number:</p>
-          {% if form.street_number.errors %}
-            {{ form.street_number(class="form-control form-control-lg form-width
+          <p>Street Address (ex: 500 South St):</p>
+          {% if form.street_address.errors %}
+            {{ form.street_address(class="form-control form-control-lg form-width
                 is-invalid") }}
             <div class="invalid-feedback">
-              {% for error in form.street_number.errors %}
-                <span>{{ error }}</span>
-              {% endfor %}
-            </div>
-          {% else %}
-            {{ form.street_number(class="form-control form-control-lg form-width") }}
-          {% endif %}<br>
-        </div>
-
-        <div class="form-group bottom-border-line">
-          <p>Street Name:</p>
-          {% if form.street_name.errors %}
-            {{ form.street_name(class="form-control form-control-lg form-width
-                is-invalid") }}
-            <div class="invalid-feedback">
-              {% for error in form.street_name.errors %}
+              {% for error in form.street_address.errors %}
                 <span>{{ error }}</span>
               {% endfor %}
             </div><br>
           {% else %}
-            {{ form.street_name(class="form-control form-control-lg form-width") }}
+            {{ form.street_address(class="form-control form-control-lg form-width") }}
             <br>
           {% endif %}
         </div>

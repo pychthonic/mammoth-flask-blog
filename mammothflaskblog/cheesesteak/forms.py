@@ -33,17 +33,11 @@ state_choices = [
 
 
 class CheesesteakForm(FlaskForm):
-	street_number = IntegerField(
-			'Street Number',
+	street_address = StringField(
+			'Street Address (ex: 500 South St)',
 			validators=[
 			DataRequired(),
-			NumberRange(min=0, max=50000, message="Invalid street number"),
-			])
-	street_name = StringField(
-			'Street Name',
-			validators=[
-			DataRequired(),
-			Length(max=60),
+			Length(max=50, message="That's a novel, not an address"),
 			Regexp(regex="^[a-zA-Z0-9\s]*$", message="Letters, numbers, and spaces only")])
 	city = StringField(
 			'City or Town',

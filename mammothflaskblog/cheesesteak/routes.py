@@ -1,4 +1,5 @@
 from flask import Blueprint
+from flask import flash
 from flask import redirect
 from flask import render_template
 from flask import url_for
@@ -37,45 +38,46 @@ class Cheesesteak:
         self.get_api_verification()
         self.get_search_parameters()
         self.get_geocoordinates()
-        self.headers = {
-                'Authorization': 'bearer {}'.format(self.yelp_api_key)}
-        self.parameters = {
-                'term': 'cheesesteak',
-                'limit': self.max_results,
-                'latitude': self.latitude,
-                'longitude': self.longitude,
-                'radius': self.radius_meters,
-                'location': self.city_state}
-        response = requests.get(
-            url=self.endpoint,
-            params=self.parameters,
-            headers=self.headers)
-        response_data = sorted(
-                response.json()['businesses'],
-                key=lambda x: x['distance'])
-        self.results_list = []
-        for biz in response_data:
-            if biz['distance'] < self.radius_meters:
-                result_dict_entry = dict()
-                distance_to_cheesesteak = self.convert_meters_to_blocks(
-                        biz['distance'])
+        if self.location:
+            self.headers = {
+                    'Authorization': 'bearer {}'.format(self.yelp_api_key)}
+            self.parameters = {
+                    'term': 'cheesesteak',
+                    'limit': self.max_results,
+                    'latitude': self.latitude,
+                    'longitude': self.longitude,
+                    'radius': self.radius_meters,
+                    'location': self.city_state}
+            response = requests.get(
+                url=self.endpoint,
+                params=self.parameters,
+                headers=self.headers)
+            response_data = sorted(
+                    response.json()['businesses'],
+                    key=lambda x: x['distance'])
+            self.results_list = []
+            for biz in response_data:
+                if biz['distance'] < self.radius_meters:
+                    result_dict_entry = dict()
+                    distance_to_cheesesteak = self.convert_meters_to_blocks(
+                            biz['distance'])
 
-                if distance_to_cheesesteak > 1:
-                    result_dict_entry['distance_to_cheesesteak'] = (
-                        f"About {distance_to_cheesesteak + 1} blocks away")
-                elif distance_to_cheesesteak == 0:
-                    result_dict_entry['distance_to_cheesesteak'] = (
-                        f"Less than a block away")
-                else:
-                    result_dict_entry['distance_to_cheesesteak'] = (
-                        f"About {distance_to_cheesesteak} block away")
-                result_dict_entry['name'] = biz['name']
-                result_dict_entry['address'] = biz['location']['address1']
-                if biz['phone']:
-                    result_dict_entry['phone'] = biz['phone']
-                else:
-                    result_dict_entry['phone'] = 'Not Listed'
-                self.results_list.append(result_dict_entry)
+                    if distance_to_cheesesteak > 1:
+                        result_dict_entry['distance_to_cheesesteak'] = (
+                            f"About {distance_to_cheesesteak + 1} blocks away")
+                    elif distance_to_cheesesteak == 0:
+                        result_dict_entry['distance_to_cheesesteak'] = (
+                            f"Less than a block away")
+                    else:
+                        result_dict_entry['distance_to_cheesesteak'] = (
+                            f"About {distance_to_cheesesteak} block away")
+                    result_dict_entry['name'] = biz['name']
+                    result_dict_entry['address'] = biz['location']['address1']
+                    if biz['phone']:
+                        result_dict_entry['phone'] = biz['phone']
+                    else:
+                        result_dict_entry['phone'] = 'Not Listed'
+                    self.results_list.append(result_dict_entry)
 
     def get_search_parameters(self):
         """Get address from user and store it within instance variables.
@@ -98,8 +100,11 @@ class Cheesesteak:
         """
         self.geolocator = Nominatim(user_agent="philly_cheesesteak_finder")
         self.location = self.geolocator.geocode(self.full_address)
-        self.latitude = self.location.latitude
-        self.longitude = self.location.longitude
+        if self.location:
+            self.latitude = self.location.latitude
+            self.longitude = self.location.longitude
+
+
 
     def get_api_verification(self):
         """Looks in config.py for the API key and the client id, so
@@ -124,11 +129,8 @@ def new_cheesesteak_search():
     form = CheesesteakForm()
     if form.validate_on_submit():
 
-        street_number = form.street_number.data
-        street_name = form.street_name.data
-        full_street_addy = (str(street_number)
-                          + " "
-                          + street_name.strip())
+        street_address = form.street_address.data
+        full_street_addy = street_address.strip()
         city = form.city.data.strip()
         state = form.state.data
         how_many_blocks = form.how_many_blocks.data
@@ -139,6 +141,9 @@ def new_cheesesteak_search():
                                          state,
                                          how_many_blocks,
                                          max_results)
+        if not cheesesteak_search.location:
+            flash(f'{full_street_addy}, {city} {state} not found. Check spelling or try choosing a nearby address', 'success')
+            return redirect('/cheesesteak')
 
         msg = Message('Cheesesteak search', 
                       sender=Config.MFB_EMAIL,
