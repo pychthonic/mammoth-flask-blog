@@ -24,7 +24,7 @@ def view_text_and_images():
     carousel_slides2 = enumerate(carousel_slides)
     page = request.args.get('page', 1, type=int)
     text_and_images = TextAndImage.query.order_by(
-            TextAndImage.id.desc()).paginate(page=page, per_page=3)
+            TextAndImage.id.desc()).paginate(page=page, per_page=5)
     return render_template('image_text_display.html',
                            text_and_images=text_and_images,
                            carousel_slides1=carousel_slides1,
