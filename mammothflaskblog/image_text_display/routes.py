@@ -100,7 +100,7 @@ def update_text_and_image(text_and_image_id):
                     os.remove(file_path_to_delete)
             image_file = form.image_file.data
             filename = (
-                    "letter_image" 
+                    "letter_image"
                     + str(text_and_image.id)
                     + os.path.splitext(image_file.filename)[1])
             path_plus_filename = os.path.join(
